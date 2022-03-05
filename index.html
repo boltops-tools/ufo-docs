@@ -1,0 +1,195 @@
+---
+layout: default
+sidebar: false
+---
+
+<header class="masthead">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="header-content">
+          <div class="header-content-inner">
+            <h1>UFO: ECS Deploy Tool</h1>
+            <h2>UFO provides convenient tooling to make it easier and more fun to work with ECS. UFO tries to bring a heroku-like experience to ECS.</h2>
+            <a href="{% link getting-started.md %}" class="btn btn-outline btn-xl">Learn More!</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <img src="/img/logos/ufo-site-header.png" class="homepage-logo" />
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="summary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Summary</h2>
+        <hr class="star-light">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <p>The main command is <code>ufo ship</code>. Here's what it does:</p>
+
+        <ol class="landing-summary">
+          <li>Build the Docker image and push it to repo</li>
+          <li>Build the ECS Task Definition and CloudFormation template</li>
+          <li>Deploy the ECS resources by launching a CloudFormation stack</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>Commands</h3>
+        <div class="commands">
+{% highlight sh %}
+ufo ship
+ufo ps
+ufo scale
+ufo destroy
+ufo build
+{% endhighlight %}
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h3>.ufo/vars/dev.rb</h3>
+        <div class="commands">
+{% highlight ruby %}
+@family = family
+@name = role     # IE: web worker clock
+@image = docker_image
+@cpu = 128
+@memory = 256
+@memory_reservation = 256
+@container_port = dockerfile_port # parsed from Dockerfile
+@environment = env_file(".env")
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>.ufo/resources/task_definitions/web.yml</h3>
+        <div class="commands">
+{% highlight yaml %}
+family: <%= @family %>
+networkMode: "bridge"
+containerDefinitions:
+- name: <%= @name %>
+  image: <%= @image %>
+  cpu: <%= @cpu %>
+  memory: <%= @memory %>
+  memoryReservation: <%= @memory_reservation %>
+  portMappings:
+  - containerPort: <%= @container_port %>
+    protocol: tcp
+  command: <%= @command %>
+  essential: true
+{% endhighlight %}
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h3>ufo exec</h3>
+        <div class="commands">
+{% highlight sh %}
+$ ufo exec
+Starting session with SessionId: ecs-execute-command-099f990f7044b76b4
+root@dcec6f6c7fdc:/#
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- About Section -->
+<section class="download bg-primary text-center" id="download">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>About</h2>
+        <hr class="star-light">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <p>UFO is a tool makes using AWS ECS easier. UFO allows you to write the AWS Task Definition in JSON or YAML format.  It allows you to use the ERB templating language so you can use the same code to create different environments like dev and prod.</p>
+      </div>
+      <div class="col-lg-6">
+        <p>The UFO tool tries to provide a heroku-like experience. At the same time, it gives you much more control over the ECS set up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="screenshot">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>ufo ship</h2>
+        <hr class="star-primary">
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-offset-1 col-md-10'>
+{% highlight sh %}
+$ ufo ship
+Will deploy stack demo-web-dev
+Building Docker Image
+=> docker build -t 536766270177.dkr.ecr.us-west-2.amazonaws.com/demo:ufo-2022-03-02T20-32-33-12dc6e0 -f Dockerfile .
+Docker Image built: 536766270177.dkr.ecr.us-west-2.amazonaws.com/demo:ufo-2022-03-02T20-32-33-12dc6e0
+Pushing Docker Image
+=> docker push 536766270177.dkr.ecr.us-west-2.amazonaws.com/demo:ufo-2022-03-02T20-32-33-12dc6e0
+Task Definition built: .ufo/output/task_definition.json
+Parameters built:      .ufo/output/params.json
+Template built:        .ufo/output/template.yml
+Creating stack demo-web-dev
+Waiting for stack to complete
+08:32:39PM CREATE_IN_PROGRESS AWS::CloudFormation::Stack demo-web-dev User Initiated
+08:34:32PM CREATE_IN_PROGRESS AWS::ECS::Service EcsService
+...
+08:35:08PM CREATE_COMPLETE AWS::CloudFormation::Stack demo-web-dev
+Stack success status: CREATE_COMPLETE
+Time took: 2m 32s
+Software shipped!
+Stack: demo-web-dev
+Service: demo-web-dev-EcsService-i2lBBDs31vOX
+Tasks: Running: 1 Desired: 1 Min: 1 Max: 2
+Application ELB: demo-we-Elb-1UV4OWTPWAN4H-1073820873.us-west-2.elb.amazonaws.com
++----------------------------------+------+-----------------+---------------+---------+
+|               Task               | Name |     Release     |    Started    | Status  |
++----------------------------------+------+-----------------+---------------+---------+
+| 3924c30eb7bc4c8197bf107934a4b79b | web  | demo-web-dev:39 | 1 minutes ago | RUNNING |
++----------------------------------+------+-----------------+---------------+---------+
+$
+{% endhighlight %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="success" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2>Learn More</h2>
+        <hr class="star-primary">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div id="success"></div>
+        <a id="next" href="{% link _docs/learn.md %}" class="btn btn-primary btn-xl">Quick Start</a>
+      </div>
+    </div>
+  </div>
+</section>

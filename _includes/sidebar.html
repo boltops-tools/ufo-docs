@@ -1,0 +1,141 @@
+<div id="sidebar" class="sidebar">
+  <section class="content-nav">
+    <ul>
+      <li><h2><a href="{% link getting-started.md %}">Getting Started</a></h2></li>
+      <li><a href="{% link _docs/learn.md %}">Guide</a>
+        <ul>
+          <li><a href="{% link _docs/learn/install.md %}">Install</a></li>
+          <li><a href="{% link _docs/learn/configure.md %}">Configure AWS</a></li>
+          <li><a href="{% link _docs/learn/cluster.md %}">Cluster Setup</a></li>
+          <li><a href="{% link _docs/learn/new-project.md %}">New Project</a></li>
+          <li><a href="{% link _docs/learn/review-project.md %}">Review Project</a></li>
+          <li><a href="{% link _docs/learn/deploy.md %}">Deploy</a></li>
+          <li><a href="{% link _docs/learn/change.md %}">Change</a></li>
+          <li><a href="{% link _docs/learn/update.md %}">Update</a></li>
+          <li><a href="{% link _docs/learn/destroy.md %}">Destroy</a></li>
+          <li><a href="{% link _docs/learn/next-steps.md %}">Next Steps</a></li>
+        </ul>
+      </li>
+      <!--
+      <li><a href="{% link _docs/vs.md %}">UFO vs Others</a>
+        <ul>
+          {% assign docs = site.docs | where: "categories","vs" | sort: "order" %}
+          {% for doc in docs -%}
+          <li><a href="{{ doc.url }}">{{ doc.nav_text }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      -->
+    </ul>
+    <ul>
+      <li><h2><a href="{% link docs.md %}">Docs</a></h2></li>
+      <li><a href="{% link _docs/intro.md %}">Intro</a>
+        <ul>
+        {% assign docs = site.docs | where: "categories","intro" | sort:"order" %}
+        {% for doc in docs -%}
+          <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+        {% endfor %}
+        </ul>
+      </li>
+      <li><a href="{% link _docs/install.md %}">Install</a>
+        <ul>
+          <li><a href="{% link _docs/install/gem.md %}">Gem</a>
+            <ul>
+              {% assign docs = site.docs | where: "categories","gem" | sort:"order" %}
+              {% for doc in docs -%}
+              <li><a href="{{ doc.url }}">{{ doc.nav_text }}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li><a href="{% link _docs/install/ruby.md %}">Ruby</a>
+          <li><a href="{% link _docs/install/updating.md %}">Updating</a></li>
+        </ul>
+      </li>
+      <li><a href="{% link _docs/config.md %}">Config</a>
+        <ul>
+        {% assign docs = site.docs | where: "categories","config" | sort: "order" %}
+        {% for doc in docs -%}
+          <li><a href='{{doc.url}}'>{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+        {% endfor %}
+        </ul>
+      </li>
+      <li><a href="{% link _docs/features.md %}">Features</a>
+        <ul>
+          {% assign docs = site.docs | where: "categories","features" | sort:"order" %}
+          {% for doc in docs -%}
+          <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li><a href="{% link _docs/layering.md %}">Layering</a>
+        <ul>
+          {% assign docs = site.docs | where: "categories","layering" | sort:"order" %}
+          {% for doc in docs -%}
+          <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li><a href="{% link _docs/helpers.md %}">Helpers</a>
+        <ul>
+        {% assign docs = site.docs | where: "categories","helpers" | sort: "order" %}
+        {% for doc in docs -%}
+          {% if doc.url == "/docs/helpers/builtin/" %}
+          <li><a href="{% link _docs/helpers/builtin.md %}">Built-In</a>
+            <ul>
+            {% assign builtin = site.docs | where: "categories","builtin-helpers" | sort: "order" %}
+            {% for doc in builtin -%}
+              <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+            {% endfor %}
+            </ul>
+          </li>
+          {% else %}
+          <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+      </li>
+      <li><a href="{% link _docs/patterns.md %}">Patterns</a>
+        <ul>
+          {% assign docs = site.docs | where: "categories","patterns" | sort:"order" %}
+          {% for doc in docs -%}
+          <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li><a href="{% link _docs/debug.md %}">Debugging</a>
+        <ul>
+          {% assign docs = site.docs | where: "categories","debug" | sort:"order" %}
+          {% for doc in docs -%}
+          <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li><a href="{% link _docs/more.md %}">More</a>
+        <ul>
+          {% assign docs = site.docs | where: "categories","more" | sort:"order" %}
+          {% for doc in docs -%}
+          <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li><a href="{% link _docs/upgrading.md %}">Upgrading</a>
+          <ul>
+              {% assign docs = site.docs | where: "categories","upgrading" | sort: "order" %}
+              {% for doc in docs -%}
+                <li><a href='{{doc.url}}'>{{doc.short_title}}</a></li>
+              {% endfor %}
+          </ul>
+      </li>
+      <li><a href="{% link _docs/next-steps.md %}">Next Steps</a></li>
+      <li><a href="{% link reference.md %}">CLI Reference</a></li>
+
+    </ul>
+  </section>
+  <div class="menu-options">
+    <h2>sidebar options:</h2>
+    <ul class="list-unstyled">
+      <li><a href="#" id="expand-all">expand all</a></li>
+      <li><a href="{{ site.gh_url }}/blob/master/" id="edit-page" target="_blank">edit page</a></li>
+    </ul>
+  </div>
+</div>

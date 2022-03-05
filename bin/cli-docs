@@ -1,0 +1,34 @@
+#!/bin/bash
+
+export RUBYLIB=~/tongueroo/dsl_evaluator/lib:$RUBYLIB
+
+set -eux
+
+DOCS=`pwd` # save ufo-docs location
+
+mkdir -p /tmp/ufo/cli-docs
+cd /tmp/ufo/cli-docs
+
+# To use an ufo edge, just symlink it
+if [ ! -e /tmp/ufo/cli-docs/ufo ] ; then
+  git clone https://github.com/boltops-tools/ufo
+fi
+
+cd ufo # will be in the cloned ufo repo for the rest of the script
+
+if [ ! -L /tmp/ufo/cli-docs/ufo ] ; then
+  git pull || true
+  bundle
+fi
+bundle exec rake docs # generate cli docs
+
+# folder _reference
+rm -rf $DOCS/_reference*
+mv docs/_reference $DOCS/
+
+# file reference.md
+mv docs/reference.md $DOCS/reference.md
+
+# remove _includes to cleanup
+# docs/_includes/reference.md - just a generic reference.md left that is not needed
+rm -rf docs
