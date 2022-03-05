@@ -30,16 +30,10 @@ cfn.disable_rollback | false | Whether or not to disable rollback
 cfn.notification_arns | nil | CloudFormation stack notification.
 cfn.tags | nil | Hash of tags. IE: {Name: "value"}
 {% include config/reference/docker.md %}
-ecs.cluster | :ENV | Notice that the default is a pattern. By default, the `:ENV` pattern is expanded as the value of env var `UFO_ENV=dev`. So, by convention, the ECS cluster that ufo deploys to matches the `UFO_ENV`. If `UFO=prod`, then `ufo ship` deploys to the `prod` ECS cluster. This is option overrides this convention.
-ecs.desired_count | nil | Only respected when `autoscaling.enabled = false`.
-ecs.scheduling_strategy | nil | ECS Scheduling Strategy. IE: REPLICA or DAEMON
+{% include config/reference/ecs.md %}
 {% include config/reference/elb.md %}
 {% include config/reference/exec.md %}
-log.root | The root folder where logs are written to. | log
-logger | Logger instance to use. | Logger.new($stderr)
-logger.formatter | Logger Formatter to use. See [Formatter](https://ruby-doc.org/stdlib-2.7.1/libdoc/logger/rdoc/Logger/Formatter.html) for interface. | [Ufo::Logger::Formatter](https://github.com/boltops-tools/ufo/blob/master/lib/ufo/logger/formatter.rb)
-logger.level | Logger level | info
-logs.filter_pattern | nil | Default filter pattern to use. The CLI option overrides this setting. Example: `config.logs.filter_pattern = '- "HealthChecker"'`. Note the `-` minus sign rejects patterns. See: [AWS Docs: CloudWatch Logs Filter and Syntax Pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
+{% include config/reference/logging.md %}
 {% include config/reference/names.md %}
 ps.format | auto | Default format of ps tasks output. Examples: auto csv table tab json. The auto format means table format is used if terminal is wide enough. If terminal is not wide enough, json format is used.
 ps.hide_age | 5 | Age in minutes before hiding from `ufo ps`.

@@ -22,3 +22,6 @@ Here we're overriding the cluster name with `:ENV-cluster`. The setting is a pat
     :ENV-cluster => dev-cluster
 
 So ufo will deploy your application to the ECS cluster name "dev-cluster".
+
+{% include config/reference/header.md %}
+{% include config/reference/ecs.md %}

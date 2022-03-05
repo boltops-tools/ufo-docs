@@ -37,8 +37,6 @@ Ufo.configure do |config|
   config.vpc.subnets.elb = stack_output("vpc-:ENV.PublicSubnets").split(',')
 end
 ```
-## VPC Options
 
-Name | Default | Required? | Description
---- | --- | --- | ---
+{% include config/reference/header.md %}
 {% include config/reference/vpc.md %}
