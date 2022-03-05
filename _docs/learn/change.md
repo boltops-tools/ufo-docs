@@ -21,7 +21,7 @@ These variables are used by the task definition.
 
 ```fuby
 family: <%= @family %>
-networkMode: "bridge"
+networkMode: bridge
 containerDefinitions:
 - name: <%= @name %>
   image: <%= @image %>

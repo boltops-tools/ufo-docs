@@ -12,7 +12,7 @@ Ufo creates a task definition resource using the file in `.ufo/resources/task_de
 
 ```yaml
 family: <%= @family %>
-networkMode: "bridge"
+networkMode: bridge
 containerDefinitions:
 - name: <%= @name %>
   image: <%= @image %>
