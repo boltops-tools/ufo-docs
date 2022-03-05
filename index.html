@@ -81,7 +81,7 @@ ufo destroy  # Destroy the ECS service.
         <div class="commands">
 {% highlight yaml %}
 family: <%= @family %>
-networkMode: "bridge"
+networkMode: bridge
 containerDefinitions:
 - name: <%= @name %>
   image: <%= @image %>
