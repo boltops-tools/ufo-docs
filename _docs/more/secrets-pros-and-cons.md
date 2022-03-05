@@ -12,13 +12,15 @@ We'll go over some of the pros and cons of using secrets.
 
 ## Pros
 
-* ECS decrypts the secrets straight from AWS to the ECS task environment. It **never** passes through the machine calling `ufo ship` IE: your laptop, a deploy server, or CodeBuild, etc.
-* The user does not even need IAM permission and access to the secret. Only the ecs-agent in the ECS
+* ECS decrypts the secrets straight from AWS to the ECS task environment. It **never** passes through your machine. IE: your laptop, a deploy server, or CodeBuild, etc.
+* You do not have to grant permission for users to access and read the secret. Only the ecs-agent on the ECS Container Instance requires access.
+* It's highly secure. Users can be given limited AWS credential permissions.
 
 ## Cons
 
-* Permissions, permissions, permissions. It requires setting up an IAM `executionRoleArn` permissions. When you configure one, it overrides the ECS default provided role, and you take on the responsibility and have to remember things like giving access to pull from ECR.
+* It requires setting up an IAM `executionRoleArn` permissions correctly. When you configure the `executionRoleArn` in the ECS Task Definition, this overrides the ECS provided one with reasonable defaults. You take on full responsibility. You now have to grant proper access to the ecs-agent. It's easy to forget things like ECR pull permission and can lead to a frustrating experience.
 * Figuring out the secrets syntax takes some wrangling.
-* They can be difficult to debug. To see the error, you have to dig deep into the STOPPED task details. The errors are not well surfaced in the ECS console. The [ufo ps]({% link _reference/ufo-ps.md %}) can be very helpful. It tries to surface errors more quickly.
+* ECS secrets can be difficult to debug. To see the error, you have to dig deep into the STOPPED task details. The errors are not well surfaced in the ECS console. The [ufo ps]({% link _reference/ufo-ps.md %}) tries to be helpful and surface errors when available.
+* Secrets are pulled **lazily** at container start time by the ecs-agent. If the AWS secrets service is down, the container will not be able to spin up. Though unlikely to go down, Secrets are a point of failure.
 
-You may think with the Pros, using ECS secrets support is what most will do. The extra overhead and hassles can get in the way, though. Many are ok with using simple env vars, especially if they got a lot on their plate. It's a time trade-off, and companies usually have different priorities and requirements.
+You may think with the pros, using ECS Secrets support is what most will do. If you're in the high-security industry, the pros probably outweigh the cons. There is definitely overhead, and hassle in figuring it out can get in the way, though. Many are ok with using simple env vars. It's understandable, especially if they got a lot on their plate. It's a time trade-off, and companies usually have different priorities and requirements.

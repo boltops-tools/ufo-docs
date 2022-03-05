@@ -30,6 +30,6 @@ Show process info on ECS service.
 ```
 [--status=STATUS]  # Status filter: all, pending, stopped, running.
                    # Default: all
-[--format=FORMAT]  # Output formats: csv, equal, table, tab, json
+[--format=FORMAT]  # Output formats: auto, csv, equal, json, tab, table
 ```
 
