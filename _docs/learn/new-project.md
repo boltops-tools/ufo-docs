@@ -17,7 +17,7 @@ You'll need a Docker repo to push the Docker image to. For this guide, we'll use
 You created the repo and saved the `repositoryUri` to the `REPO` shell variable.  The REPO will look something like this:
 
     $ echo $REPO
-    536766270177.dkr.ecr.us-west-2.amazonaws.com/demo
+    111111111111.dkr.ecr.us-west-2.amazonaws.com/demo
 
 ## Initialize Structure
 
@@ -67,7 +67,7 @@ The `config.rb` is where you can configure UFO settings.
 Ufo.configure do |config|
   config.logger.level = "info" # IE: info or debug
   config.app = "demo" # env var UFO_APP takes higher precedence if set
-  config.docker.repo = "536766270177.dkr.ecr.us-west-2.amazonaws.com/demo"
+  config.docker.repo = "111111111111.dkr.ecr.us-west-2.amazonaws.com/demo"
   config.ecs.cluster = ":ENV" # pattern is replaced with UFO_ENV. Default is UFO_ENV=dev
 end
 ```
