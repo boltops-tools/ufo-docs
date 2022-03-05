@@ -15,3 +15,5 @@ In ufo v6, significant structural changes were made to improve the tool. The rec
 The default `UFO_ENV` was changed from `UFO_ENV=development` to `UFO_ENV=dev`, so this should create a new stack.
 
 If you were already using the shorter name `UFO_ENV=dev`, then you'll need to use another name like `UFO_ENV=sbx` and then switch back over by repeating the blue-green process. Though it's a decent effort, it is a controlled and safe way to upgrade to ufo v6.
+
+V5 Docs: The old v5 docs are available here: [v5.ufoships.com](https://v5.ufoships.com)
