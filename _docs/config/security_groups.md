@@ -46,8 +46,6 @@ end
 
 The example above shows how to set security groups to override on an env-role scoped basis.
 
-## VPC Options
-
-Name | Default | Required? | Description
---- | --- | --- | ---
+{% include config/reference/header.md %}
 {% include config/reference/vpc.md %}
+{% include config/reference/footer.md %}
