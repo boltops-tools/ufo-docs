@@ -2,7 +2,7 @@
 title: UFO Managed Security Groups
 nav_text: Managed Security Groups
 category: more
-order: 9
+order: 2
 ---
 
 Ufo creates and manages two security groups. One for the ELB and one for the ECS tasks. Here are some considerations for these security groups:

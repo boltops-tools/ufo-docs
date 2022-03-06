@@ -2,7 +2,7 @@
 title: "ECS Network Mode: bridge vs awsvpc"
 nav_text: ECS Network Mode
 category: more
-order: 6
+order: 1
 ---
 
 ## Pros and Cons: bridge network mode

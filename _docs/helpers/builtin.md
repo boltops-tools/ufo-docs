@@ -14,10 +14,12 @@ dockerfile\_port | Exposed port extracted from the Dockerfile. If the `EXPOSE` l
 env_file(path) | This method takes a `.env` file which contains a simple key-value list of environment variables and converts the list to the proper task definition JSON format.
 env_vars(text) | This method takes a block of text that contains the env values in `key=value` format and converts that block of text to the proper task definition JSON format.
 family | The family name of the task_definition. The default is `APP-ROLE-ENV`. IE: `demo-web-dev`.
-role | The role. IE: `web`
-secrets_file(path) | This method takes a `.secrets` file which contains a simple key-value list of environment variables and converts the list to the proper task definition JSON format.
-secrets_vars(text) | This method takes a block of text that contains the secrets values in `key=value` format and converts that block of text to the proper task definition JSON format.
+role | The role. IE: web, worker, clock
+secrets_file(path) | This method takes a `.secrets` file which contains a simple key-value list of environment variables and converts the list to the proper task definition JSON format. See: [Secrets Docs]({% link _docs/helpers/builtin/secrets.md %})
+secrets_vars(text) | This method takes a block of text that contains the secrets values in `key=value` format and converts that block of text to the proper task definition JSON format. See: [Secrets Docs]({% link _docs/helpers/builtin/secrets.md %})
 ssm(name) | Get ssm value.
 stack_output(name) | Get stack output value. Note: Cannot use :APP in the expansion pattern. Can use :ENV though. `stack_output("vpc-:ENV.Vpc")` => `stack_output("vpc-dev.Vpc")`.
 
 The helper methods generally defined in [task_definition/helpers](https://github.com/tongueroo/ufo/blob/master/lib/ufo/task_definition/helpers).
+
+Note: The helpers can be used in config files as well as the Task Definition template `web.yml`. However, config files are loaded super early in the boot process. So when helpers are used in config files, they cannot use `:APP` as part of pattern expansion since `config.app` is assigned in the config files themselves.

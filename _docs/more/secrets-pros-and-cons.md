@@ -1,7 +1,8 @@
 ---
-title: Secrets Pros and Cons
+title: ECS Secrets Pros and Cons
+nav_text: Secrets Pros and Cons
 category: more
-order: 8
+order: 3
 ---
 
 ## What are Secrets?

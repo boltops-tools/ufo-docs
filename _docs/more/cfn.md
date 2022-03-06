@@ -1,8 +1,8 @@
 ---
 title: Customizing CloudFormation Resources
-nav_text: Cfn
+nav_text: Custom CloudFormation
 categories: more
-order: 1
+order: 4
 ---
 
 Ufo allows you to customize the CloudFormation template with the ECS resources by merging in your own custom YAML.

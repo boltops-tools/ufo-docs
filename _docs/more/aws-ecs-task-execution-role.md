@@ -2,7 +2,7 @@
 title: Create ecsTaskExecutionRole with AWS CLI
 nav_text: ecsTaskExecutionRole
 categories: more
-order: 7
+order: 6
 ---
 
 Here are commands you can copy and paste to create the `ecsTaskExecutionRole` IAM role:

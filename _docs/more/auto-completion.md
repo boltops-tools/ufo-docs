@@ -1,7 +1,7 @@
 ---
 title: Auto Completion
 category: more
-order: 3
+order: 5
 ---
 
 Ufo supports bash auto-completion.  To set it up add the following to your `~/.profile` or `.bashrc`:
