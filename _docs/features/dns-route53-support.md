@@ -11,7 +11,6 @@ UFO can create a "pretty" route53 record and value to the ELB DNS name. Example:
 
 ```ruby
 Ufo.configure do |config|
-  config.dns.comment = "cname to load balancer created by ufo"
   config.dns.domain = "domain.com" # only recommended option to set
 end
 ```

@@ -55,7 +55,7 @@ credits: 'BoltOps, LLC'
 markdown: kramdown
 permalink: pretty
 
-gh_url: "https://github.com/boltops-tools/ufo"
+gh_url: "https://github.com/boltops-tools/ufo-docs"
 
 collections:
   docs:
