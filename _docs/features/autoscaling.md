@@ -27,3 +27,4 @@ You can use the [ufo scale]({% link _reference/ufo-scale.md %}) command to manua
 
 {% include config/reference/header.md %}
 {% include config/reference/autoscaling.md %}
+{% include config/reference/footer.md %}

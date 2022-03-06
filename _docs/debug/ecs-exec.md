@@ -85,11 +85,13 @@ Ufo.configure do |config|
 end
 ```
 
-## Error: IAM Permissions
+## Error: TargetNotConnectedException
 
 If you're seeing this error:
 
     An error occurred (TargetNotConnectedException) when calling the ExecuteCommand operation: The execute command failed due to an internal error. Try again later.
 
-It's likely an IAM permission issue. See IAM Permissions above.
+* It's likely an IAM permission issue. See IAM Permissions above.
+* If you're using network mode awsvpc, you make sure that containers are launched in private subnets. Otherwise, exec won't work.
+
 

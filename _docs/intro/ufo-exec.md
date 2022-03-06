@@ -52,3 +52,4 @@ To use the exec feature, some prerequisites must be set up. More info: [Debuggin
 
 {% include config/reference/header.md %}
 {% include config/reference/exec.md %}
+{% include config/reference/footer.md %}

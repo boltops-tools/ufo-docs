@@ -17,3 +17,4 @@ end
 
 {% include config/reference/header.md %}
 {% include config/reference/docker.md %}
+{% include config/reference/footer.md %}

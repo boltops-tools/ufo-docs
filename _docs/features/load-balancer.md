@@ -60,3 +60,4 @@ Otherwise, you must `ufo destroy` first and run `ufo ship` afterward.
 
 {% include config/reference/header.md %}
 {% include config/reference/elb.md %}
+{% include config/reference/footer.md %}

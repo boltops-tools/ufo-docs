@@ -33,3 +33,4 @@ This allows you complete control of the user-facing DNS record.
 
 {% include config/reference/header.md %}
 {% include config/reference/dns.md %}
+{% include config/reference/footer.md %}

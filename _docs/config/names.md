@@ -36,3 +36,4 @@ Think the UFO defaults are good as they will allow you to add additional environ
 
 {% include config/reference/header.md %}
 {% include config/reference/names.md %}
+{% include config/reference/footer.md %}

@@ -40,3 +40,4 @@ end
 
 {% include config/reference/header.md %}
 {% include config/reference/vpc.md %}
+{% include config/reference/footer.md %}
