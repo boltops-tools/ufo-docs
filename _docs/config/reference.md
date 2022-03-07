@@ -42,5 +42,5 @@ scale.warning | true | Disables the scale warning message about how manual adjus
 secrets.pattern.secretsmanager | :APP-:ENV-:SECRET_NAME | Pattern used for secretsmanager secrets. It's expanded like so `:APP-:ENV-:SECRET_NAME` => `demo-dev-DB_PASS`
 secrets.pattern.ssm | :APP/:ENV/:SECRET_NAME | Pattern use for ssm parameter store. It's expanded like so `:APP/:ENV/:SECRET_NAME` => `demo/dev/DB_PASS`
 secrets.provider | ssm | Default provider for conventional expansion. Examples: ssm or secretsmanager
-ship.docker.quiet | true | Quiet docker output by writing output to `.ufo/log/docker.log`. It only affects `ufo ship` docker output. The `ufo docker build` command will still show output to the terminal.
+ship.docker.quiet | false | Quiet docker output by writing output to `.ufo/log/docker.log`. It only affects `ufo ship` docker output. The `ufo docker build` command will still show output to the terminal.
 {% include config/reference/vpc.md %}
