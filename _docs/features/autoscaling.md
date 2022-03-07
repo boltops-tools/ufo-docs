@@ -23,7 +23,7 @@ Your ECS Service will automatically scale in and out based on load.
 
 ## Manual AutoScaling Changes and Considerations
 
-You can use the [ufo scale]({% link _reference/ufo-scale.md %}) or the AWS console to manually change the scaling settings. However, when [ufo ship]({% link _reference/ufo-ship.md %}) is next ran, the `.ufo/config.rb` settings will override the manual changes. You can enable UFO to retain manual changes with:
+You can use the [ufo scale]({% link _reference/ufo-scale.md %}) or the AWS console to manually change the scaling settings. However, when [ufo ship]({% link _reference/ufo-ship.md %}) is next run, the `.ufo/config.rb` settings will override the manual changes. You can enable UFO to retain manual changes with:
 
 .ufo/config.rb
 
