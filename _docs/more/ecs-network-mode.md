@@ -13,7 +13,7 @@ One advantage of bridge mode is that you can use dynamic port mapping and not wo
 
 ## Pros and Cons: awsvpc mode
 
-With awsvpc network mode, you must consider the limit of ethernet cards for the instance type. If the instance supports ENI Trunking, then this limit is decently large. However, if the instance does not support ENI Trunking, the ENI limit is small.
+With awsvpc network mode, you must consider the limit of ethernet cards for the instance type. If the instance supports ENI Trunking, then this limit is larger. However, if the instance does not support ENI Trunking, the ENI limit is extremely small.
 
 For the ENI Trunking Task limits per instance: [Elastic Network Interface Trunking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html)
 
