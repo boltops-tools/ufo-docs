@@ -13,7 +13,7 @@ One advantage of bridge mode is that you can use dynamic port mapping and not wo
 
 ## Pros and Cons: awsvpc mode
 
-With awsvpc network mode, you must consider the limit of ethernet cards for the instance type. If the instance supports ENI Trunking, then this limit is decently large. However, if the instance does not support ENI Trunking, the ENI limit is small.
+With awsvpc network mode, you must consider the limit of ethernet cards for the instance type. If the instance supports ENI Trunking, then this limit is larger. However, if the instance does not support ENI Trunking, the ENI limit is extremely small.
 
 For the ENI Trunking Task limits per instance: [Elastic Network Interface Trunking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html)
 
@@ -34,4 +34,4 @@ awsvpc | Fine grain security group permissions for each ECS service. | The numbe
 
 ## Suggestion
 
-Think for most bridge mode is good. Run the ECS containers on private VPCs and only whitelist to your VPC CIDR. Scaling will go much smoother with this setup. Though, use awsvpc mode with ENI trunking supported instances if you have that requirement. Ultimately, companies have different requirements and may prefer to pay the extra costs that come with awsvpc mode.
+Think for most, bridge mode is good. Run the ECS containers on private subnets if you're ok to pay for the NAT Gateways. Scaling will go much smoother with bridge mode. Though, use awsvpc mode with ENI trunking supported instances if you have that requirement. Ultimately, companies have different requirements and may prefer to pay the extra costs to scale with awsvpc mode.
