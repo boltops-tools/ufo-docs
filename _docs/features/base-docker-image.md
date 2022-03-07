@@ -76,4 +76,4 @@ Remember when using the `Dockerfile.erb`, the `Dockerfile` is overwritten. So yo
 
 Why not use [build args](https://www.jeffgeerling.com/blog/2017/use-arg-dockerfile-dynamic-image-specification)?
 
-Ufo uses a YAML file, so users will not have to remember to provide the build arg. It is also easy to update the `.ufo/state/data.yml` with the `ufo docker base` command.
+UFO uses a YAML file, so users will not have to remember to provide the build arg. It is also easy to update the `.ufo/state/data.yml` with the `ufo docker base` command.

@@ -1,3 +1,3 @@
 docker.clean_keep | false | Docker images generated from ufo are cleaned up automatically for you at the end of `ufo ship`. This controls how many docker images to keep around. By default, this is `false` and all Docker images are kept.
 docker.ecr_keep | false | If you are using AWS ECR, then the ECR images can also be automatically cleaned up at the end of `ufo ship`. By default, this is `false` and all AWS ECR are kept.
-docker.repo | nil | The Docker repo to push the Docker image to. Example: `org/repo`. Ufo automatically generates the tag and appends it to the Docker image name: `org/repo` => `org/repo:generated-tag`.
+docker.repo | nil | The Docker repo to push the Docker image to. Example: `org/repo`. UFO automatically generates the tag and appends it to the Docker image name: `org/repo` => `org/repo:generated-tag`.

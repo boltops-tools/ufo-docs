@@ -37,7 +37,7 @@ The table below covers more of the structure and the purpose of each folder and 
 
 File / Directory  | Description
 ------------- | -------------
-config.rb  | Ufo's general settings file, where you adjust the default [config]({% link _docs/config.md %}).
+config.rb  | UFO's general settings file, where you adjust the default [config]({% link _docs/config.md %}).
 config/env/dev.rb  | Env specific config settings.
 output/  | The folder where the generated task definitions are written to.
 resources/iam_roles/  | Where ufo managed iam roles associated with the task definition can be defined. For more details see: [IAM Roles]({% link _docs/intro/iam/task.md %}).

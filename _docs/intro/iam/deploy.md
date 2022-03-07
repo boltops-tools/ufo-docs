@@ -72,7 +72,7 @@ Here's a summary of the commands:
         ]
     }
     EOF
-    aws iam put-group-policy --group-name Ufo --policy-name UfoPolicy --policy-document file:///tmp/ufo-policy.json
+    aws iam put-group-policy --group-name Ufo --policy-name UFOPolicy --policy-document file:///tmp/ufo-policy.json
 
 Then create a user and add the user to IAM group. Here's an example:
 

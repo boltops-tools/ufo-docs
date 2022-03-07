@@ -5,15 +5,15 @@ category: config
 order: 6
 ---
 
-If you need to hook into the Ufo boot process super early on, Ufo boot hooks are designed for that.
+If you need to hook into the UFO boot process super early on, UFO boot hooks are designed for that.
 
-* They run very early in the Ufo boot process.
+* They run very early in the UFO boot process.
 * They are useful for setting shared global values like env vars.
 * Boot hooks are ruby files that get required. It's nice and simple. There's no interface to learn.
 
 ## Hooks
 
-Ufo will search 2 files in the `config` folder. If the files exist, they will be run in this order.
+UFO will search 2 files in the `config` folder. If the files exist, they will be run in this order.
 
 1. **config/boot.rb**: Always runs.
 2. **config/boot/UFO_ENV.rb**: Runs based on the env. IE: `UFO_ENV=dev` => `config/boot/dev.rb`

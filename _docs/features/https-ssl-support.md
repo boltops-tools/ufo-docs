@@ -19,4 +19,4 @@ end
 For the certificate arn, you will need to create a certificate with AWS ACM. To do so, you can follow these instructions: [Request a Public Certificate
 ](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html)
 
-The protocol will be HTTP or HTTPS for Application Load Balancers and TCP or TLS for Network Load Balancers. Ufo will infer the correct value, so you don't have to configure the protocol manually.
+The protocol will be HTTP or HTTPS for Application Load Balancers and TCP or TLS for Network Load Balancers. UFO will infer the correct value, so you don't have to configure the protocol manually.

@@ -4,7 +4,7 @@ title: Docs
 
 ## Overview
 
-Ufo is a tool that makes deploying to AWS ECS easier. Ufo provides a `ufo ship` command that does this.
+UFO is a tool that makes deploying to AWS ECS easier. UFO provides a `ufo ship` command that does this.
 
 {% include intro/3-steps.md %}
 

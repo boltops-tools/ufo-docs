@@ -46,7 +46,7 @@ Parameter store format:
 
 ## UFO Support
 
-Ufo supports both forms of secrets. You create a `.secrets` file and can reference it in
+UFO supports both forms of secrets. You create a `.secrets` file and can reference it in
 
 .ufo/resources/task_definitions/web.yml
 
@@ -133,7 +133,7 @@ The extra slash confuses ECS. If you accidentally include it, UFO will remove it
 
 ## Substitution
 
-Ufo also does a simple substitution on the value. For example, the `:ENV` is replaced with the actual value of `UFO_ENV=dev`. Example:
+UFO also does a simple substitution on the value. For example, the `:ENV` is replaced with the actual value of `UFO_ENV=dev`. Example:
 
     NAME1=SSM:demo/:ENV/parameter_name
     NAME2=SECRETSMANAGER:demo/:ENV/secret_name-AbCdEf

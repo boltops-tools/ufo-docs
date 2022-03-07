@@ -1,8 +1,8 @@
 elb.default_actions | nil | Override the Listener default actions. This provides you a lot of control.
 elb.enabled | auto | Enables creating the ELB. Can be "auto", true or false. Auto means will create an ELB when role is `web`.
 elb.health_check_interval_seconds | 10 | Time, in seconds, between health checks.
-elb.health_check_path | nil | Health check url path.
-elb.healthy_threshold_count | 5 | Number of health checks successes before considered healthy.
+elb.health_check_path | / | Health check url path.
+elb.healthy_threshold_count | 3 | Number of health checks successes before considered healthy.
 elb.port | 80 | ELB Listener port
 elb.redirect.code | 302 | Redirection status code
 elb.redirect.enabled | false | When set to true, the Listener redirect to HTTPS by default. You should also set up SSL.

@@ -38,7 +38,6 @@ cfn.tags | nil | Hash of tags. IE: {Name: "value"}
 ps.format | auto | Default format of ps tasks output. Examples: auto csv table tab json. The auto format means table format is used if terminal is wide enough. If terminal is not wide enough, json format is used.
 ps.hide_age | 5 | Age in minutes before hiding stopped tasks from `ufo ps`. Uses stopped_at and status of STOPPED.
 ps.summary | true | Turns on or off the summary at the top of `ufo ps`.
-scale.warning | true | Disables the scale warning message about how manual adjustments should be codified for them to be kept.
 secrets.pattern.secretsmanager | :APP-:ENV-:SECRET_NAME | Pattern used for secretsmanager secrets. It's expanded like so `:APP-:ENV-:SECRET_NAME` => `demo-dev-DB_PASS`
 secrets.pattern.ssm | :APP/:ENV/:SECRET_NAME | Pattern use for ssm parameter store. It's expanded like so `:APP/:ENV/:SECRET_NAME` => `demo/dev/DB_PASS`
 secrets.provider | ssm | Default provider for conventional expansion. Examples: ssm or secretsmanager

@@ -4,7 +4,7 @@ category: features
 order: 8
 ---
 
-Ufo can be configured to automatically clean old images from the ECR registry after the deployment completes by configuring your [Config]({% link _docs/config.md %}) file like so:
+UFO can be configured to automatically clean old images from the ECR registry after the deployment completes by configuring your [Config]({% link _docs/config.md %}) file like so:
 
 .ufo/config.rb
 

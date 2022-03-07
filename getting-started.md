@@ -2,6 +2,6 @@
 title: Getting Started
 ---
 
-Step-by-step guide for getting started with Ufo.
+Step-by-step guide for getting started with UFO.
 
-* [Getting Starting with Ufo]({% link _docs/learn.md %})
+* [Getting Starting with UFO]({% link _docs/learn.md %})

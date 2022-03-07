@@ -5,7 +5,7 @@ category: features
 order: 1
 ---
 
-With Ufo, you can configure ECS Service AutoScaling settings. Here are the default settings.
+With UFO, you can configure ECS Service AutoScaling settings. Here is an example.
 
 .ufo/config.rb
 
@@ -19,11 +19,21 @@ Ufo.configure do |config|
 end
 ```
 
-Your ECS Service will automatically scale out and in based on load.
+Your ECS Service will automatically scale in and out based on load.
 
-## ufo scale
+## Manual AutoScaling Changes and Considerations
 
-You can use the [ufo scale]({% link _reference/ufo-scale.md %}) command to manually change the scaling settings. Note, however, when [ufo ship]({% link _reference/ufo-ship.md %}) is next ran, it'll use the `.ufo/config.rb` settings.
+You can use the [ufo scale]({% link _reference/ufo-scale.md %}) or the AWS console to manually change the scaling settings. However, when [ufo ship]({% link _reference/ufo-ship.md %}) is next ran, the `.ufo/config.rb` settings will override the manual changes. You can enable UFO to retain manual changes with:
+
+.ufo/config.rb
+
+```ruby
+Ufo.configure do |config|
+  config.autoscaling.manual_changes.retain = true
+end
+```
+
+Doing so means that `autoscaling.max_capacity` and `autoscaling.max_capacity` are only used for initial deployment. Afterward, they are not respected.
 
 {% include config/reference/header.md %}
 {% include config/reference/autoscaling.md %}

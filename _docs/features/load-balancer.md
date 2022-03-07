@@ -5,7 +5,7 @@ category: features
 order: 2
 ---
 
-Ufo can automatically create a load balancer and associate it with an ECS service. Here are the default settings.
+UFO can automatically create a load balancer and associate it with an ECS service. Here are the default settings.
 
 .ufo/config.rb
 
@@ -20,7 +20,7 @@ In `enabled = "auto"` mode, UFO will create a ELB  when `UFO_ROLE=web`. So by de
 
 ## ELB Types: Application and Network
 
-Ufo supports both Application and Network Load Balancers.
+UFO supports both Application and Network Load Balancers.
 
 .ufo/config.rb
 

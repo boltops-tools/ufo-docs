@@ -4,7 +4,7 @@ category: intro
 order: 1
 ---
 
-Ufo first builds the Docker image. Then it builds a CloudFormation template. Lastly, it calls CloudFormation to deploy your app and create the necessary ECS resources. It does these 3 steps:
+UFO first builds the Docker image. Then it builds a CloudFormation template. Lastly, it calls CloudFormation to deploy your app and create the necessary ECS resources. It does these 3 steps:
 
 {% include intro/3-steps.md %}
 

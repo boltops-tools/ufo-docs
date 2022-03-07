@@ -4,7 +4,7 @@ category: features
 order: 6
 ---
 
-Ufo has a concept of extra environments. It's as simple as setting the `UFO_EXTRA` env variable.
+UFO has a concept of extra environments. It's as simple as setting the `UFO_EXTRA` env variable.
 
     ufo ship demo-web             # creates demo-web-dev stack
     UFO_EXTRA=2 ufo ship demo-web # creates demo-web-dev-2 stack

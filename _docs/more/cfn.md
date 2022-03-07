@@ -5,7 +5,7 @@ categories: more
 order: 4
 ---
 
-Ufo allows you to customize the CloudFormation template with the ECS resources by merging in your own custom YAML.
+UFO allows you to customize the CloudFormation template with the ECS resources by merging in your own custom YAML.
 
 The properties in the file `.ufo/config/cfn/dev.yml` map directly to ufo's CloudFormation resources. Here's a list of the resources that you can customize:
 

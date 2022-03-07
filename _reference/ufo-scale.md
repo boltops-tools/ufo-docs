@@ -11,7 +11,7 @@ reference: true
 
 Scale the ECS service
 
-Ufo provides a command to scale up and down an ECS service quickly. However, the scaling configuration is only a temporary update until the next `ufo ship`.
+UFO provides a command to scale up and down an ECS service quickly. However, the scaling configuration is only a temporary update until the next `ufo ship`.
 
     ufo scale --desired 2
 

@@ -8,4 +8,4 @@ title: Articles
 * [UFO ECS Deployment Tool Introduction](https://blog.boltops.com/2018/07/06/ufo-ecs-deployment-tool-introduction)
 * [UFO Version 4 Release: Load Balancer Support](https://blog.boltops.com/2018/07/05/ufo-version-4-release)
 * [Heroku vs ECS Fargate vs EC2 On-Demand vs EC2 Spot Pricing Comparison](https://blog.boltops.com/2018/04/22/heroku-vs-ecs-fargate-vs-ec2-on-demand-vs-ec2-spot-pricing-comparison)
-* [Ufo Ship on AWS ECS Presentation](http://www.slideshare.net/tongueroo/ufo-ship-for-aws-ecs-70885296)
+* [UFO Ship on AWS ECS Presentation](http://www.slideshare.net/tongueroo/ufo-ship-for-aws-ecs-70885296)

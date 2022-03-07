@@ -2,7 +2,7 @@
 title: Contributing
 ---
 
-Hi there! Interested in contributing to Ufo? We'd love your help. Ufo is an open source project, built one contribution at a time by users like you.
+Hi there! Interested in contributing to UFO? We'd love your help. UFO is an open source project, built one contribution at a time by users like you.
 
 ## Where to get help or report a problem
 
@@ -12,10 +12,10 @@ See [the support guidelines]({% link support.md %})
 
 Whether you're a developer, an infrastructure engineer, or just an enthusiast, there are lots of ways to contribute. Here are a few ideas:
 
-* [Install Ufo on your computer](https://ufoships.com/docs/install/) and kick the tires. Does it work? Does it do what you'd expect? If not, [open an issue](https://github.com/boltops-tools/ufo/issues/new/choose) and let us know.
+* [Install UFO on your computer](https://ufoships.com/docs/install/) and kick the tires. Does it work? Does it do what you'd expect? If not, [open an issue](https://github.com/boltops-tools/ufo/issues/new/choose) and let us know.
 * Comment on some of the project's [open issues](https://github.com/boltops-tools/ufo/issues). Have you experienced the same problem? Know a workaround? Do you have a suggestion for how the feature could be better?
 * Read through [the documentation](https://ufoships.com/docs/), and click the "improve this page" button, any time you see something confusing or have a suggestion for something that could be improved.
-* Browse through the [Ufo Community forum](https://community.boltops.com), and lend a hand answering questions. There's a good chance you've already experienced what another user is experiencing.
+* Browse through the [UFO Community forum](https://community.boltops.com), and lend a hand answering questions. There's a good chance you've already experienced what another user is experiencing.
 * Find [an open issue](https://github.com/boltops-tools/ufo/issues) (especially [those labeled `help wanted`](https://github.com/boltops-tools/ufo/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)), and submit a proposed fix. If it's your first pull request, we promise we won't bite and are glad to answer any questions.
 * Help evaluate [open pull requests](https://github.com/boltops-tools/ufo/pulls), by testing the changes locally and reviewing what's proposed.
 
@@ -58,7 +58,7 @@ That's it! You'll be automatically subscribed to receive updates as others revie
 
 ## Proposing updates to the documentation
 
-We want the Ufo documentation to be the best it can be. We've open-sourced our docs, and we welcome any pull requests if you find it lacking.
+We want the UFO documentation to be the best it can be. We've open-sourced our docs, and we welcome any pull requests if you find it lacking.
 
 ### How to submit changes
 
@@ -76,7 +76,7 @@ Any time you propose a code change, you should also include updates to the docum
 
 #### Documentation
 
-If your contribution changes any Ufo behavior, make sure to update the documentation. Documentation lives in the `docs` folder.  It's a Jekyll site and can be started with `cd docs && bin/web`. If the docs are missing information, please feel free to add it in. Great docs make a great project. Include changes to the documentation within your pull request, and once merged, `https://ufoships.com` will be updated.
+If your contribution changes any UFO behavior, make sure to update the documentation. Documentation lives in the `docs` folder.  It's a Jekyll site and can be started with `cd docs && bin/web`. If the docs are missing information, please feel free to add it in. Great docs make a great project. Include changes to the documentation within your pull request, and once merged, `https://ufoships.com` will be updated.
 
 #### Tests
 
@@ -96,4 +96,4 @@ To run the test suite by running the following command:
 
 ## Thank You
 
-Thanks! Hacking on Ufo should be fun. If you find any of this hard to figure out, let us know so we can improve our process or documentation!
+Thanks! Hacking on UFO should be fun. If you find any of this hard to figure out, let us know so we can improve our process or documentation!

@@ -6,7 +6,7 @@ Let's review the resources.
 
 ## ECS Task Definition
 
-Ufo creates a task definition resource using the file in `.ufo/resources/task_definitions`. It looks something like this:
+UFO creates a task definition resource using the file in `.ufo/resources/task_definitions`. It looks something like this:
 
 .ufo/resources/task_definitions/web.yml
 
@@ -43,7 +43,7 @@ To set the template variables, you use the files in `.ufo/vars`. Examples:
 @cpu = 256
 @memory = 512
 @memory_reservation = 512
-@awslogs_group = ["ecs/#{Ufo.app}", Ufo.env, Ufo.env_extra].compact.join('-')
+@awslogs_group = ["ecs/#{UFO.app}", Ufo.env, Ufo.env_extra].compact.join('-')
 @awslogs_stream_prefix = role
 @awslogs_region = aws_region
 ```

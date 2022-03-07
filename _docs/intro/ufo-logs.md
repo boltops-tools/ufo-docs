@@ -40,7 +40,7 @@ And section of the variables file:
 .ufo/vars/base.rb
 
 ```ruby
-@awslogs_group = ["ecs/#{Ufo.app}", Ufo.env, Ufo.env_extra].compact.join('-')
+@awslogs_group = ["ecs/#{UFO.app}", Ufo.env, Ufo.env_extra].compact.join('-')
 @awslogs_stream_prefix = role
 @awslogs_region = aws_region
 ```

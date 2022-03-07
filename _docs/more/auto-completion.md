@@ -4,7 +4,7 @@ category: more
 order: 5
 ---
 
-Ufo supports bash auto-completion.  To set it up add the following to your `~/.profile` or `.bashrc`:
+UFO supports bash auto-completion.  To set it up add the following to your `~/.profile` or `.bashrc`:
 
     eval $(ufo completion_script)
 

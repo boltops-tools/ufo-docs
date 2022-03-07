@@ -1,5 +1,5 @@
 ---
-title: How to Use Custom Version of Ufo
+title: How to Use Custom Version of UFO
 nav_text: Custom Version
 category: gem
 order: 2
