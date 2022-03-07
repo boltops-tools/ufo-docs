@@ -71,7 +71,7 @@ It returns the Nginx welcome page.
 **Tips:**
 
 * You can turn off the summary at the top of `ufo ps` with `config.ps.summary = false`. Here are the [Config Docs]({% link _docs/config.md %}).
-* If you have a docker build process that's relatively quick, you may want to enable `config.ship.docker.quiet = true`. This writes the Docker output to a file, keeping the ship out pretty clean. 
+* If you have a docker build process that's relatively quick, you may want to enable `config.ship.docker.quiet = true`. This writes the Docker output to a file, keeping the ship output pretty clean. 
 * The `ufo ps` command is also called at the end of `ufo ship` for your convenience.
 
 Next, we'll make a change.
