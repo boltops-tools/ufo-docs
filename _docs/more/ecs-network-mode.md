@@ -34,4 +34,4 @@ awsvpc | Fine grain security group permissions for each ECS service. | The numbe
 
 ## Suggestion
 
-Think for most bridge mode is actually fine. Run the ECS containers on private VPCs and only whitelist to your VPC CIDR. Scaling will go much smoother with this setup. Though, use awsvpc mode with ENI trunking supported instances if you have that requirement. Ultimately, companies may have different requirements, and awsvpc mode may be their preference.
+Think for most bridge mode is good. Run the ECS containers on private VPCs and only whitelist to your VPC CIDR. Scaling will go much smoother with this setup. Though, use awsvpc mode with ENI trunking supported instances if you have that requirement. Ultimately, companies have different requirements and may prefer to pay the extra costs that come with awsvpc mode.
