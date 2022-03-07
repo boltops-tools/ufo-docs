@@ -32,6 +32,6 @@ Network mode | Pros | Cons
 bridge | The numbers of containers you can run will not be limited due to EC2 instance network cards limits. | Less fine grain security control over security group permissions with multiple ECS services.
 awsvpc | Fine grain security group permissions for each ECS service. | The number of containers can be limited by the number of network cards the EC2 instance type supports.
 
-## Recommendation
+## Suggestion
 
-It is generally recommended to use awsvpc mode with ENI trunking supported instances. You get the best a strong security posture and decent container density. However, companies may have different requirements, and bridge mode may be their preference.
+Think for most bridge mode is actually fine. Run the ECS containers on private VPCs and only whitelist to your VPC CIDR. Scaling will go much smoother with this setup. Though, use awsvpc mode with ENI trunking supported instances if you have that requirement. Ultimately, companies may have different requirements, and awsvpc mode may be their preference.
