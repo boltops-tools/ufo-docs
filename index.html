@@ -60,23 +60,6 @@ ufo destroy  # Destroy stack
         </div>
       </div>
       <div class="col-lg-6">
-        <h3>.ufo/vars/dev.rb</h3>
-        <div class="commands">
-{% highlight ruby %}
-@family = family
-@name = role     # IE: web worker clock
-@image = docker_image
-@cpu = 128
-@memory = 256
-@memory_reservation = 256
-@container_port = dockerfile_port # parsed from Dockerfile
-@environment = env_file(".env")
-{% endhighlight %}
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6">
         <h3>.ufo/resources/task_definitions/web.yml</h3>
         <div class="commands">
 {% highlight yaml %}
@@ -93,6 +76,23 @@ containerDefinitions:
     protocol: tcp
   command: <%= @command %>
   essential: true
+{% endhighlight %}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>.ufo/vars/dev.rb</h3>
+        <div class="commands">
+{% highlight ruby %}
+@family = family
+@name = role     # IE: web worker clock
+@image = docker_image
+@cpu = 128
+@memory = 256
+@memory_reservation = 256
+@container_port = dockerfile_port # parsed from Dockerfile
+@environment = env_file(".env")
 {% endhighlight %}
         </div>
       </div>
