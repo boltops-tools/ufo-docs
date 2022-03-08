@@ -11,7 +11,7 @@ Note, often the clock process is also called a scheduler.
 
 ## Structure
 
-Here's a structure that achieves this pattern with Kubes:
+Here's a structure that achieves this pattern with UFO:
 
     .ufo/resources/task_definitions
     └── web.yml
