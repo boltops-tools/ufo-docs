@@ -10,7 +10,7 @@ order: 88
 
 The are only 2 required config options. The rest are optional. The required options:
 
-    config.app            # App name. IE: demo Note: if UFO_ENV is set then this is optional
+    config.app            # App name. IE: demo Note: if UFO_APP is set then this is optional
     config.docker.repo    # Docker Repo to push Docker image to
 
 The vpc settings are notable. It's how you configure which VPC you want the ECS Service to use.
