@@ -47,6 +47,6 @@ And for app2:
 
 Also check out: [Layering]({% link _docs/layering.md %}) and [IAM Role Docs]({% link _docs/intro/iam/task.md %}).
 
-The central deployer approach is removes duplication of the ufo config files between projects. Leveraging app-level overrides gives provides a great degree of control.
+The central deployer approach is removes duplication of the ufo config files between projects. Leveraging app-level overrides provide a great degree of control.
 
 If the settings start to diverge too much, then it probably makes sense to use separate `.ufo` files in that app specific repo.
