@@ -88,6 +88,8 @@ Ufo.configure do |config|
 end
 ```
 
+The `config.secrets.pattern.ssm` option can be assigned a callable option, like how how `config.names.stack` can be assigned a callable option for even more custom control. See: [Config Names]({% link _docs/config/names.md %}).
+
 ## Direct Control
 
 The `.secrets` file is like an env-file that will understand a secrets-smart format.  Example:
