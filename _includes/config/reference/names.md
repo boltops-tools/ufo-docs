@@ -1,2 +1,2 @@
-names.stack | :APP-:ROLE-:ENV | The CloudFormation stack name. The default is a conventional pattern. Example: `:APP-:ROLE-:ENV` => `demo-web-dev`.
-names.task_definition | :APP-:ROLE-:ENV | The task definition name. The default is a conventional pattern. Example: `:APP-:ROLE-:ENV` => `demo-web-dev`.
+names.stack | :APP-:ROLE-:ENV | The CloudFormation stack name. The default is a conventional pattern. Example: `:APP-:ROLE-:ENV` => `demo-web-dev`. {% include config/reference/callable-option.md %}
+names.task_definition | :APP-:ROLE-:ENV | The task definition name. The default is a conventional pattern. Example: `:APP-:ROLE-:ENV` => `demo-web-dev`. {% include config/reference/callable-option.md %}

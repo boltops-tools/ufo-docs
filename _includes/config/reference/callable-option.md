@@ -1,0 +1,1 @@
+Note: The default also includes `:EXTRA`, IE: `:APP-:ROLE-:ENV-:EXTRA`, the extra is not shown for simplicity. Also supports being assigned Ruby Callable Objects. A [Ufo::Names](https://github.com/boltops-tools/ufo/blob/master/lib/ufo/names.rb) object is passed as the argument to `.call(arg)`.

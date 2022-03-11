@@ -88,7 +88,7 @@ Ufo.configure do |config|
 end
 ```
 
-The `config.secrets.pattern.ssm` option can be assigned a callable option, like how how `config.names.stack` can be assigned a callable option for even more custom control. See: [Config Names]({% link _docs/config/names.md %}).
+The `config.secrets.pattern.ssm` option can be assigned a callable option, similiar to how `config.names.stack` can be assigned a callable option for even more custom control. See: [Config Names]({% link _docs/config/names.md %}). For secrets, the argument passed to the `.call(arg)` method is an instance of [Helper/Vars](https://github.com/boltops-tools/ufo/blob/master/lib/ufo/task_definition/helpers/vars.rb), though.
 
 ## Direct Control
 
