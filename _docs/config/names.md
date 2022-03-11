@@ -8,7 +8,7 @@ UFO uses conventions over configuration. It has many reasonable defaults to get 
 
 ## Separate AWS Accounts
 
-Let's say you use completely separate AWS accounts for your dev and prod environments. And you would like to remove the environment suffix.
+The default ufo stack naming convention is `:APP-:ROLE-:ENV`. Let's say you use completely separate AWS accounts for your dev and prod environments. And you would like to remove the environment suffix.
 
 ```ruby
 Ufo.configure do |config|

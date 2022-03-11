@@ -25,6 +25,8 @@ For example, a t3.small instance has a limit of 3 ethernet cards. This means, at
 
 In awsvpc mode, each ECS task gets its own dedicated network card. The advantage is more granular control of the permissions per ECS service. For example, when services A and B are using awsvpc mode, they can have different security groups associated with them. In this mode, ufo creates a security group and sets up the permissions so the load balancer can talk to the containers.  You can also add additional security groups using `.ufo/config.rb`.
 
+A con of awsvpc network mode is that ECS doesn't seem to do a great job of surfacing errors when the limit is reached. This makes them pretty difficult to debug. See: [Debugging awsvpc ENI Limits]({% link _docs/debug/awsvpc-eni-limits.md %}).
+
 The following table summarizes the pros and cons:
 
 Network mode | Pros | Cons
@@ -34,4 +36,6 @@ awsvpc | Fine grain security group permissions for each ECS service. | The numbe
 
 ## Suggestion
 
-Think for most, bridge mode is good. Run the ECS containers on private subnets if you're ok to pay for the NAT Gateways. Scaling will go much smoother with bridge mode. Though, use awsvpc mode with ENI trunking supported instances if you have that requirement. Ultimately, companies have different requirements and may prefer to pay the extra costs to scale with awsvpc mode.
+Think for most, bridge mode is good. Run the ECS containers on private subnets, if you're also ok to pay for the NAT Gateways. Though not as good as awsvpc, private subnets provide increased security isolation. Scaling goes much smoother with bridge mode. With awsvpc, you'll likely hit the ENI limit before hitting your own apps limits. It just depends on what bottlenecks first. Ironically, if you're app is slower, then it's actually good for scaling with awsvpc mode.  The app's limit will reach, and the ECS service and cluster will scale before hitting the ENI limit. So the ENI limit is not the bottleneck. Write slower code to it can scale 🤣  It's also easier not to have to debug ENI limits as ECS doesn't seem to surface the errors well.
+
+Though, use awsvpc mode with ENI trunking supported instances if you have that hard requirement. Some companies must do so for compliance reasons. There are trade-offs here, and companies have different needs and may prefer to pay the extra costs to scale with awsvpc mode.

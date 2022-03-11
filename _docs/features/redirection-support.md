@@ -23,3 +23,7 @@ end
 ```
 
 You should must set up [SSL Support]({% link _docs/features/https-ssl-support.md %}) if you're using this.
+
+{% include config/reference/header.md %}
+{% include config/reference/elb.md %}
+{% include config/reference/footer.md %}
