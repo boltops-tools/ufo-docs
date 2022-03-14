@@ -16,8 +16,10 @@ It can happen if you already have deployed the ECS service and then:
 * The `config.vpc` subnets configurations have been changed in `.ufo/config.rb`.
 * The `.ufo/resources/task_definitions/web.yml` networkMode has been changed from bridge to awsvpc mode or vice-versa.
 
-This is because the underlying CloudFormation stack that UFO uses to update the ECS Service cannot make such a change. At the end of the day, CloudFormation uses other services like ECS, ELB, etc, to make the changes we ask for.
+And then you try deploying with `ufo ship` again.
+
+This is because the underlying CloudFormation stack that UFO uses to update the ECS Service cannot make such a change. Remember, `ufo ship`, deploys the ECS Service with CloudFormation. It leverages CloudFormation to do the hard work of orchestration. At the end of the day, CloudFormation uses other services like ECS, ELB, etc, to make the changes we ask for, though.
 
 Sometimes the underlying services may not support such a change. CloudFormation may try to replace the resource or update it in place. But sometimes it's not possible. CloudFormation tries to take the best path possible. In the case above, though somewhat cryptic, the error message seems to indicate that CloudFormation is trying to update and move the LoadBalancer to another VPC subnet, but it's having trouble doing so. Unsure exactly why CloudFormation does not create a new ELB in this case. There may be an ELB service related-reason for this.
 
-In any case, the CloudFormation orchestration sequence is not able to make such a change.  These cases are essentially rare edge cases. In these cases, you may have to destroy the ECS service first and recreate it.
+In any case, the CloudFormation orchestration sequence is not able to make such a change.  These edge cases are usually rare but can happen. In these cases, you may have to destroy the ECS service first and recreate it.
