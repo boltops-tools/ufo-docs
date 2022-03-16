@@ -5,11 +5,11 @@ categories: config
 order: 9
 ---
 
-You can configure where UFO stores state. UFO only uses state to store the Docker base image. This is only used if you're using the [Base Docker Image feature]({% link _docs/features/base-docker-image.md %})
+You can configure where UFO stores state. UFO only stores state specifically if you're using the [Base Docker Image feature]({% link _docs/features/base-docker-image.md %}).
 
 ## Example
 
-By default, UFO will create an `ufo` CloudFormation stack and create a managed s3 bucket to store state. You can use your own s3 bucket though if you prefer by configuring this setting:
+By default, UFO will create a `ufo` CloudFormation stack and create a managed s3 bucket to store the state. You can use your own s3 bucket, though, by configuring this setting:
 
 .ufo/config.rb
 
@@ -22,7 +22,7 @@ Ufo.configure do |config|
 end
 ```
 
-It's probably easier to leave the defaults so you do not have to remember to create an s3 bucket.
+It's probably easier to leave the defaults, so you do not have to remember to create an s3 bucket.
 
 {% include config/reference/header.md %}
 {% include config/reference/state.md %}
