@@ -39,5 +39,6 @@ ps.format | auto | Default format of ps tasks output. Examples: auto csv table t
 ps.hide_age | 5 | Age in minutes before hiding stopped tasks from `ufo ps`. Uses stopped_at and status of STOPPED.
 ps.summary | true | Turns on or off the summary at the top of `ufo ps`.
 {% include config/reference/secrets.md %}
+{% include config/reference/state.md %}
 ship.docker.quiet | false | Quiet docker output by writing output to `.ufo/log/docker.log`. It only affects `ufo ship` docker output. The `ufo docker build` command will still show output to the terminal.
 {% include config/reference/vpc.md %}
