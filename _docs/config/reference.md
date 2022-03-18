@@ -33,6 +33,7 @@ cfn.tags | nil | Hash of tags. IE: {Name: "value"}
 {% include config/reference/ecs.md %}
 {% include config/reference/elb.md %}
 {% include config/reference/exec.md %}
+layering.show | false | Shows used layers for both config and vars. Very useful for debugging layers. There are nuances with this option. It should be set in `.ufo/config.rb` and not be set dynamically. So only `true` or `false` values should be used. This is because config layers are processed so early that UFO parses the config file for this value internally.
 {% include config/reference/logging.md %}
 {% include config/reference/names.md %}
 ps.format | auto | Default format of ps tasks output. Examples: auto csv table tab json. The auto format means table format is used if terminal is wide enough. If terminal is not wide enough, json format is used.
