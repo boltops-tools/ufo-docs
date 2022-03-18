@@ -50,7 +50,7 @@ You can also check the SSM console.
 
 ## Setup: ECS Service EnableExecuteCommand
 
-Make sure that `EnableExecuteCommand` is enabled on the ECS Service. UFO enables it by default. The reasoning is that this feature is just so helpful. Also, `heroku run` works right out of the gates. Albeit, heroku's version is slightly different since it starts up a new container, . Also, copilot also enables it by default for its version, `copilot svc exec`, to work right off the bat. Nevertheless, it is also possible to disable it. Example:
+Make sure that `EnableExecuteCommand` is enabled on the ECS Service. UFO enables it by default. The reasoning is that this feature is just so helpful. Also, `heroku run` works right out of the gates. Albeit, heroku's version is slightly different since it starts up a new container. Also, copilot also enables it by default for its version, `copilot svc exec`, to work right off the bat. Nevertheless, it is also possible to disable it. Example:
 
 .ufo/config.rb
 
