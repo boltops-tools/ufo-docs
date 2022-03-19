@@ -1,6 +1,5 @@
 ---
 title: App Layering
-nav_text: App Layers
 category: layering
 order: 4
 ---
@@ -112,9 +111,4 @@ Vars Layers:
 
 As mentioned, layering can get complex and be abused. Would just stick to a few that work for your team.
 
-## Debugging Config Layers
-
-Use env var `UFO_SHOW_ALL_LAYERS=1`, and ufo will show all layers.
-
-    export UFO_SHOW_ALL_LAYERS=1
-    ufo build --no-docker
+{% include layering/config-layering-show.md %}
