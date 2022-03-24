@@ -95,7 +95,7 @@ The `config.secrets.pattern.ssm` option can be assigned a callable option, simil
 The `.secrets` file is like an env-file that will understand a secrets-smart format.  Example:
 
     NAME1=SSM:my/parameter_name
-    NAME2=SECRETSMANAGER:/my/secret_name-AbCdEf
+    NAME2=SECRETSMANAGER:my/secret_name-AbCdEf
 
 The `SSM:` and `SECRETSMANAGER:` prefix will be expanded to the full ARN. You can also specify the full ARN.
 
@@ -114,7 +114,7 @@ In turn, this generates:
       },
       {
         "name": "NAME2",
-        "valueFrom": "arn:aws:secretsmanager:us-west-2:111111111111:secret:/demo/dev/my-secret-test-qRoJel"
+        "valueFrom": "arn:aws:secretsmanager:us-west-2:111111111111:secret:demo/dev/my-secret-test-qRoJel"
       }
     ]
   }]
@@ -123,7 +123,7 @@ In turn, this generates:
 
 ## SSM Parameter Names with Leading Slash
 
-If your SSM parameter has a leading slash, do not include it. Example:
+If your SSM parameter has a leading slash, do **not** include it. Example:
 
     aws ssm get-parameter --name /demo/dev/foo
 
@@ -131,7 +131,7 @@ So use:
 
     FOO=SSM:demo/dev/foo
 
-The extra slash confuses ECS. If you accidentally include it, UFO will remove it to avoid ECS provisioning errors. For secretsmanager names, you **do** include the leading slash.
+The extra slash confuses ECS. If you accidentally include it, UFO will remove it to avoid ECS provisioning errors. For secretsmanager names, you **can** include a leading slash.
 
 ## Substitution
 
@@ -143,7 +143,7 @@ UFO also does a simple substitution on the value. For example, the `:ENV` is rep
 Expands to:
 
     NAME1=arn:aws:ssm:region:aws_account_id:parameter/demo/dev/parameter_name
-    NAME2=arn:aws:secretsmanager:region:aws_account_id:secret:/demo/dev/secret_name-AbCdEf
+    NAME2=arn:aws:secretsmanager:region:aws_account_id:secret:demo/dev/secret_name-AbCdEf
 
 ## IAM Permission
 
@@ -181,3 +181,15 @@ Be sure that the secrets exist. If they do not, you will see an error like this 
     level=info time=2020-06-26T00:59:46Z msg="Managed task [arn:aws:ecs:us-west-2:111111111111:task/dev/91828be6a02b48f982cd9122db5e39b2]: error transitioning resource [ssmsecret] to [CREATED]: fetching secret data from SSM Parameter Store in us-west-2: invalid parameters: /my-parameter-name" module=task_manager.go
 
 Sometimes there is even no error message in the ecs-agent.log. As a debugging step, try removing all secrets and seeing if the container will start up.
+
+## Disable Warning
+
+UFO warns you if `.env` or `.secrets` files are missing. You can disable the warning message with:
+
+.ufo/config.rb
+
+```ruby
+Ufo.configure do |config|
+  config.secrets.warning = false
+end
+```

@@ -62,3 +62,7 @@ As you can see, layering can be pretty powerful but also complex.
 Showing layers to debug them is particularly useful when using:
 
 * [App Layering]({% link _docs/layering/app.md %})
+
+{% include config/reference/header.md %}
+{% include config/reference/layering.md %}
+{% include config/reference/footer.md %}
