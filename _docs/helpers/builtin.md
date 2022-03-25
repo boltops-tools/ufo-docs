@@ -13,11 +13,11 @@ acm_cert(domain) | Get cert arn by domain. Returns first match.
 docker_image | The Docker image that ufo builds. This is the full image name, including the added timestamp. IE: `org/repo:ufo-[timestamp]-[git-sha]`.
 dockerfile\_port | Exposed port extracted from the Dockerfile. If the `EXPOSE` line in the Dockefile is changed, we sometimes forget to update the port in the Task Definition.  Reference the value via this helper prevents that mistake from happening.
 ecr_repo(name) | Get repository uri arn by name. Returns first match.
-env_file(path) | This method takes a `.env` file which contains a simple key-value list of environment variables and converts the list to the proper task definition JSON format.
+env_file(paths=nil) | This method takes a `.env` file which contains a simple key-value list of environment variables and converts the list to the proper task definition JSON format. It is recommended to not set paths, so multiple paths and layering is automatically considered. See: [Env Files Layering]({% link _docs/features/env_files/layering.md %}).
 env_vars(text) | This method takes a block of text that contains the env values in `key=value` format and converts that block of text to the proper task definition JSON format.
 family | The family name of the task_definition. The default is `APP-ROLE-ENV`. IE: `demo-web-dev`.
 role | The role. IE: web, worker, clock
-secrets_file(path) | This method takes a `.secrets` file which contains a simple key-value list of environment variables and converts the list to the proper task definition JSON format. See: [Secrets Docs]({% link _docs/helpers/builtin/secrets.md %})
+secrets_file(paths=nil) | This method takes a `.secrets` file which contains a simple key-value list of environment variables and converts the list to the proper task definition JSON format. See: [Secrets Docs]({% link _docs/helpers/builtin/secrets.md %}). It is recommended to not set paths, so multiple paths and layering is automatically considered. See: [Env Files Layering]({% link _docs/features/env_files/layering.md %}).
 secrets_vars(text) | This method takes a block of text that contains the secrets values in `key=value` format and converts that block of text to the proper task definition JSON format. See: [Secrets Docs]({% link _docs/helpers/builtin/secrets.md %})
 ssm(name) | Get ssm value.
 stack_output(name) | Get stack output value. Note: Cannot use :APP in the expansion pattern. Can use :ENV though. `stack_output("vpc-:ENV.Vpc")` => `stack_output("vpc-dev.Vpc")`.

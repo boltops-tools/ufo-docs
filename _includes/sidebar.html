@@ -85,7 +85,18 @@
         <ul>
           {% assign docs = site.docs | where: "categories","features" | sort:"order" %}
           {% for doc in docs -%}
-          <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+            {% if doc.url == "/docs/features/env_files/" %}
+            <li><a href="{% link _docs/features/env_files.md %}">Env Files</a>
+              <ul>
+              {% assign docs = site.docs | where: "categories","features-env-files" | sort: "order" %}
+              {% for doc in docs -%}
+                <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+              {% endfor %}
+              </ul>
+            </li>
+            {% else %}
+            <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+            {% endif %}
           {% endfor %}
         </ul>
       </li>
@@ -104,8 +115,8 @@
           {% if doc.url == "/docs/helpers/builtin/" %}
           <li><a href="{% link _docs/helpers/builtin.md %}">Built-In</a>
             <ul>
-            {% assign builtin = site.docs | where: "categories","builtin-helpers" | sort: "order" %}
-            {% for doc in builtin -%}
+            {% assign docs = site.docs | where: "categories","builtin-helpers" | sort: "order" %}
+            {% for doc in docs -%}
               <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
             {% endfor %}
             </ul>

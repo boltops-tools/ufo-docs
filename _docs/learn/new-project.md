@@ -21,7 +21,7 @@ You created the repo and saved the `repositoryUri` to the `REPO` shell variable.
 
 ## Initialize Structure
 
-Now, to initialize a project and set it up for UFO.
+Now, to initialize a project and set it up for UFO. This is similar to a `git init`.
 
     ufo init --app demo --repo $REPO
 

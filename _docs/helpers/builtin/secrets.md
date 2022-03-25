@@ -193,3 +193,5 @@ Ufo.configure do |config|
   config.secrets.warning = false
 end
 ```
+
+Related Docs: Also See [Env Files Secrets]({% link _docs/features/env_files/secrets.md %}).
