@@ -2,7 +2,7 @@
 title: Boot Hooks
 nav_text: Boot Hooks
 category: config
-order: 6
+order: 7
 ---
 
 If you need to hook into the UFO boot process super early on, UFO boot hooks are designed for that.
