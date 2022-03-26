@@ -94,6 +94,15 @@
               {% endfor %}
               </ul>
             </li>
+            {% elsif doc.url == "/docs/features/load-balancer/" %}
+            <li><a href="{% link _docs/features/load-balancer.md %}">Load Balancer</a>
+              <ul>
+              {% assign docs = site.docs | where: "categories","load-balancer" | sort: "order" %}
+              {% for doc in docs -%}
+                <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
+              {% endfor %}
+              </ul>
+            </li>
             {% else %}
             <li><a href="{{ doc.url }}">{% if doc.nav_text %}{{ doc.nav_text }}{% else %}{{ doc.title }}{% endif %}</a></li>
             {% endif %}

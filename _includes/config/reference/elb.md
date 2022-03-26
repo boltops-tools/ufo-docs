@@ -1,5 +1,6 @@
 elb.default_actions | nil | Override the Listener default actions. This provides you a lot of control.
 elb.enabled | auto | Enables creating the ELB. Can be "auto", true or false. Auto means will create an ELB when role is `web`.
+{% include config/reference/elb-existing.md %}
 elb.health_check_interval_seconds | 10 | Time, in seconds, between health checks.
 elb.health_check_path | / | Health check url path.
 elb.healthy_threshold_count | 3 | Number of health checks successes before considered healthy.
