@@ -46,7 +46,7 @@ Parameter store format:
 
 ## UFO Support
 
-UFO supports both forms of secrets. You create a `.secrets` file and can reference it in
+UFO supports both forms of secrets. You create a `.secrets` file and can reference it in.
 
 .ufo/resources/task_definitions/web.yml
 
@@ -95,7 +95,7 @@ The `.secrets` file is like an env-file that will understand a secrets-smart for
     NAME1=ssm:my/parameter_name
     NAME2=secretsmanager:my/secret_name
 
-The `ssm:` and `secretsmanager:` prefix will be expanded to the full ARN. You can also specify the full ARN.
+The prefix `ssm:` and `secretsmanager:` will be expanded to the full ARN. You can also specify the full ARN.
 
     NAME1=arn:aws:ssm:region:aws_account_id:parameter/my/parameter_name
     NAME2=arn:aws:secretsmanager:region:aws_account_id:secret:my/secret_name

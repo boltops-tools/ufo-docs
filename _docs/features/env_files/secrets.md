@@ -39,13 +39,13 @@ In this case `UFO_APP=demo` and `UFO_ENV=dev`. The app can also configured with 
 
 ## Secret Names
 
-ECS secrets support is able to resolve the secret name with the added chars by Secrets Manager like so:
+ECS secrets support can resolve the secret name with the added chars by Secrets Manager like so:
 
 .ufo/env_files/dev.secrets
 
     PASS=secretsmanager:demo/dev/PASS-aBcDef
 
-ECS secrets support also able to resolve the secret name without th added chars by Secrets Manager like so:
+ECS secrets support is also able to resolve the secret name without the added chars by Secrets Manager like so:
 
 .ufo/env_files/dev.secrets
 
