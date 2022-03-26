@@ -25,7 +25,7 @@ Secrets manager format:
   "containerDefinitions": [{
     "secrets": [{
       "name": "environment_variable_name",
-      "valueFrom": "arn:aws:secretsmanager:region:aws_account_id:secret:secret_name-AbCdEf"
+      "valueFrom": "arn:aws:secretsmanager:region:aws_account_id:secret:secret_name"
     }]
   }]
 }
@@ -52,7 +52,7 @@ UFO supports both forms of secrets. You create a `.secrets` file and can referen
 
 ```yaml
 containerDefinitions:
-  secrets: <%= secrets_file(".secrets").to_json %>
+  secrets: <%= secrets_file.to_json %>
 ```
 
 ## Conventions over Configuration
@@ -74,8 +74,6 @@ Ultimately, becoming something like this.
     DB_USER=arn:aws:ssm:us-west-2:11111111111:parameter/demo/dev/DB_USER
     DB_PASS=arn:aws:ssm:us-west-2:11111111111:parameter/demo/dev/DB_PASS
 
-Sadly, Secrets Manager names have a unique id at the end, so this convention doesn't work with Secrets Manager.
-
 ## Override the Conventions
 
 You can also set the expansion pattern to use and override the conventions.
@@ -84,23 +82,23 @@ You can also set the expansion pattern to use and override the conventions.
 
 ```ruby
 Ufo.configure do |config|
-  config.secrets.pattern.ssm = ":APP/:ENV/:SECRET_NAME" # => demo/dev/DB_PASS
+  config.secrets.ssm_pattern = ":APP/:ENV/:SECRET_NAME" # => demo/dev/DB_PASS
 end
 ```
 
-The `config.secrets.pattern.ssm` option can be assigned a callable option, similiar to how `config.names.stack` can be assigned a callable option for even more custom control. See: [Config Names]({% link _docs/config/names.md %}). For secrets, the argument passed to the `.call(arg)` method is an instance of [Helper/Vars](https://github.com/boltops-tools/ufo/blob/master/lib/ufo/task_definition/helpers/vars.rb), though.
+The `config.secrets.ssm_pattern` option can be assigned a callable option, similiar to how `config.names.stack` can be assigned a callable option for even more custom control. See: [Config Names]({% link _docs/config/names.md %}). For secrets, the argument passed to the `.call(arg)` method is an instance of [Helper/Vars](https://github.com/boltops-tools/ufo/blob/master/lib/ufo/task_definition/helpers/vars.rb), though.
 
 ## Direct Control
 
 The `.secrets` file is like an env-file that will understand a secrets-smart format.  Example:
 
-    NAME1=SSM:my/parameter_name
-    NAME2=SECRETSMANAGER:my/secret_name-AbCdEf
+    NAME1=ssm:my/parameter_name
+    NAME2=secretsmanager:my/secret_name
 
-The `SSM:` and `SECRETSMANAGER:` prefix will be expanded to the full ARN. You can also specify the full ARN.
+The `ssm:` and `secretsmanager:` prefix will be expanded to the full ARN. You can also specify the full ARN.
 
     NAME1=arn:aws:ssm:region:aws_account_id:parameter/my/parameter_name
-    NAME2=arn:aws:secretsmanager:region:aws_account_id:secret:my/secret_name-AbCdEf
+    NAME2=arn:aws:secretsmanager:region:aws_account_id:secret:my/secret_name
 
 In turn, this generates:
 
@@ -114,7 +112,7 @@ In turn, this generates:
       },
       {
         "name": "NAME2",
-        "valueFrom": "arn:aws:secretsmanager:us-west-2:111111111111:secret:demo/dev/my-secret-test-qRoJel"
+        "valueFrom": "arn:aws:secretsmanager:us-west-2:111111111111:secret:demo/dev/my-secret-test"
       }
     ]
   }]
@@ -129,7 +127,7 @@ If your SSM parameter has a leading slash, do **not** include it. Example:
 
 So use:
 
-    FOO=SSM:demo/dev/foo
+    FOO=ssm:demo/dev/foo
 
 The extra slash confuses ECS. If you accidentally include it, UFO will remove it to avoid ECS provisioning errors. For secretsmanager names, you **can** include a leading slash.
 
@@ -137,13 +135,13 @@ The extra slash confuses ECS. If you accidentally include it, UFO will remove it
 
 UFO also does a simple substitution on the value. For example, the `:ENV` is replaced with the actual value of `UFO_ENV=dev`. Example:
 
-    NAME1=SSM:demo/:ENV/parameter_name
-    NAME2=SECRETSMANAGER:demo/:ENV/secret_name-AbCdEf
+    NAME1=ssm:demo/:ENV/parameter_name
+    NAME2=secretsmanager:demo/:ENV/secret_name
 
 Expands to:
 
     NAME1=arn:aws:ssm:region:aws_account_id:parameter/demo/dev/parameter_name
-    NAME2=arn:aws:secretsmanager:region:aws_account_id:secret:demo/dev/secret_name-AbCdEf
+    NAME2=arn:aws:secretsmanager:region:aws_account_id:secret:demo/dev/secret_name
 
 ## IAM Permission
 
@@ -181,17 +179,5 @@ Be sure that the secrets exist. If they do not, you will see an error like this 
     level=info time=2020-06-26T00:59:46Z msg="Managed task [arn:aws:ecs:us-west-2:111111111111:task/dev/91828be6a02b48f982cd9122db5e39b2]: error transitioning resource [ssmsecret] to [CREATED]: fetching secret data from SSM Parameter Store in us-west-2: invalid parameters: /my-parameter-name" module=task_manager.go
 
 Sometimes there is even no error message in the ecs-agent.log. As a debugging step, try removing all secrets and seeing if the container will start up.
-
-## Disable Warning
-
-UFO warns you if `.env` or `.secrets` files are missing. You can disable the warning message with:
-
-.ufo/config.rb
-
-```ruby
-Ufo.configure do |config|
-  config.secrets.warning = false
-end
-```
 
 Related Docs: Also See [Env Files Secrets]({% link _docs/features/env_files/secrets.md %}).

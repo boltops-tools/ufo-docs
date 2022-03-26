@@ -1,3 +1,3 @@
-secrets.pattern.secretsmanager | :APP-:ENV-:SECRET_NAME | Pattern used for secretsmanager secrets. It's expanded like so `:APP-:ENV-:SECRET_NAME` => `demo-dev-DB_PASS`. Supports being assigned Ruby Callable Objects. A [Helper/Vars](https://github.com/boltops-tools/ufo/blob/master/lib/ufo/cfn/stack/vars.rb) object is passed as the argument to `.call(arg)`.
-secrets.pattern.ssm | :APP/:ENV/:SECRET_NAME | Pattern use for ssm parameter store. It's expanded like so `:APP/:ENV/:SECRET_NAME` => `demo/dev/DB_PASS`
+secrets.manager_pattern | :APP/:ENV/:SECRET_NAME | Pattern used for secretsmanager secrets. It's expanded like so `:APP/:ENV/:SECRET_NAME` => `demo/dev/DB_PASS`. Supports being assigned Ruby Callable Objects. A [Helper/Vars](https://github.com/boltops-tools/ufo/blob/master/lib/ufo/cfn/stack/vars.rb) object is passed as the argument to `.call(arg)`.
+secrets.ssm_pattern | :APP/:ENV/:SECRET_NAME | Pattern use for ssm parameter store. It's expanded like so `:APP/:ENV/:SECRET_NAME` => `demo/dev/DB_PASS`
 secrets.provider | ssm | Default provider for conventional expansion. Examples: ssm or secretsmanager

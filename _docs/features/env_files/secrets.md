@@ -35,17 +35,37 @@ Is the same as:
 
     DATABASE_URL=ssm:demo/dev/DATABASE_URL
 
-In this case `UFO_APP=demo` and `UFO_ENV=dev`. The app can also configured with `config.app` in ``.ufo/config.rb`.
+In this case `UFO_APP=demo` and `UFO_ENV=dev`. The app can also configured with `config.app` in `.ufo/config.rb`.
 
-## Overrride Convention
+## Secret Names
 
-The conventional naming scheme can be customized. Here’s a config with the default naming pattern. You can change it if you want.
+ECS secrets support is able to resolve the secret name with the added chars by Secrets Manager like so:
+
+.ufo/env_files/dev.secrets
+
+    PASS=secretsmanager:demo/dev/PASS-aBcDef
+
+ECS secrets support also able to resolve the secret name without th added chars by Secrets Manager like so:
+
+.ufo/env_files/dev.secrets
+
+    PASS=secretsmanager:demo/dev/PASS
+
+Hence the naming convention works just the same for secretsmanager
+
+.ufo/env_files/dev.secrets
+
+    PASS # also works. expands to PASS=secretsmanager:demo/dev/PASS
+
+## Overrride Conventions
+
+The default naming convention can be customized. Here’s a config with the default naming pattern. You can change it if you want.
 
 .ufo/config.rb
 
 ```ruby
 Ufo.configure do |config|
-  config.secrets.ssm_pattern = ":APP-:ENV-:NAME"
+  config.secrets.ssm_pattern = ":APP/:ENV/:NAME"
 end
 ```
 
@@ -55,10 +75,22 @@ You can also change the default secrets provider to secrets manager and its patt
 
 ```ruby
 Ufo.configure do |config|
-  config.secrets.manager_pattern = ":APP-:ENV-:NAME"
+  config.secrets.manager_pattern = ":APP/:ENV/:NAME"
   config.secrets.provider = "secretsmanager"
 end
 ```
+
+## One-Off Override
+
+You can also override the secrets provider by specifying the provider name in the .secrets file. Example:
+
+.ufo/env_files/dev.secrets
+
+    DATABASE_URL=secretsmangaer # one-off override
+
+This expands to
+
+    DATABASE_URL=secretsmangaer:demo/dev/DATABASE_URL
 
 {% include features/env_files/layering.md %}
 
