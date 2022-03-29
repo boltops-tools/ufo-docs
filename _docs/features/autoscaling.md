@@ -14,7 +14,7 @@ Ufo.configure do |config|
   config.autoscaling.enabled = true # default
   config.autoscaling.max_capacity = 5
   config.autoscaling.min_capacity = 1
-  config.autoscaling.predefined_metric_type = "ECSServiceAverageCPUUtilization"
+  config.autoscaling.predefined_metric_type = "ECSServiceAverageMemoryUtilization"
   config.autoscaling.target_value = 75.0
 end
 ```
