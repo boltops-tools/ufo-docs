@@ -43,7 +43,7 @@ To set the template variables, you use the files in `.ufo/vars`. Examples:
 @cpu = 256
 @memory = 512
 @memory_reservation = 512
-@awslogs_group = ["ecs/#{Ufo.app}", Ufo.env, Ufo.extra].compact.join('-')
+@awslogs_group = expansion("ecs/:APP-:ENV-:EXTRA")
 @awslogs_stream_prefix = role
 @awslogs_region = aws_region
 ```
