@@ -9,7 +9,7 @@ reference: true
 
 ## Description
 
-Generate helper file
+Generate helper
 
 
 ## Options

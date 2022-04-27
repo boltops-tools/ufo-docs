@@ -2,7 +2,7 @@
 title: Debugging Container Instance Missing Attributes
 nav_text: Missing Attributes
 category: debug
-order: 1
+order: 2
 ---
 
 If you're getting this error:
@@ -31,4 +31,4 @@ See: [Task networking with the awsvpc network mode](https://docs.aws.amazon.com/
 
 > When hosting tasks that use the awsvpc network mode on Amazon EC2 Linux instances, your task ENIs are not given public IP addresses. To access the internet, tasks should be launched in a private subnet that is configured to use a NAT gateway.
 
-Sadly, the "missing attributes" error doesn't tell you that.
+Sadly, the "missing attributes" error doesn't tell you that. Also, found sometimes ECS task with awsvpc network more to public subnets appear to work. For example, you got from bridge mode to awsvpc mode and the subnet before and after were public subnets. However, it's may stop working. Since it doesn't seem to work inconsistently, suggest sticking to the AWS docs and running awsvpc ECS tasks in private subnets.

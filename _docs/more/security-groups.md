@@ -5,10 +5,12 @@ category: more
 order: 2
 ---
 
-UFO creates and manages two security groups. One for the ELB and one for the ECS tasks. Here are some considerations for these security groups:
+UFO can create and manage two security groups. One for the ELB and one for the ECS tasks. Here are some considerations for these security groups:
 
-* Network load balancers do not support security groups. So an ELB security group is only created if the load balancer is an Application load balancer.
-* The ECS security group for tasks is always created but only used if network_mode is awsvpc. This is because in bridge network mode the EC2 container instance’s Ethernet card and its security group is used. The EC2 containers group security group is outside the control of ufo. You’ll need to configure the security group appropriately yourself. UFO will only assign the ECS security group when awsvpc node mode is used, and ufo has control of the security group.
+* Network load balancers do not support security groups. So an ELB security group is only created when an Application ELB is used.
+* The ECS security group for tasks is created only if network_mode awsvpc is used in the ECS task definition. This is because in bridge network mode the EC2 container instance’s Ethernet card and its security group is used. So there's no point in creating an ECS Security Group.
+* In bridge mode, the EC2 containers group security group is outside the control of ufo. You’ll need to configure the security group appropriately yourself. UFO will only create and manage an ECS security group when awsvpc node mode is used, and ufo has control of the security group.
+* The Managed ECS Security Group is automaticaly disabled when using bridge network mode.
 
 ## EC2 Instance Security Group Help
 
