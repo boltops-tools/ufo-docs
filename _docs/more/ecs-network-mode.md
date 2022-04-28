@@ -32,7 +32,7 @@ The following table summarizes the pros and cons:
 Network mode | Pros | Cons
 --- | ---
 bridge | The numbers of containers you can run will not be limited due to EC2 instance network cards limits. | Less fine grain security control over security group permissions with multiple ECS services.
-awsvpc | Fine grain security group permissions for each ECS service. | The number of containers can be limited by the number of network cards the EC2 instance type supports.
+awsvpc | Fine grain security group permission control for each ECS service and tasks. | The number of containers can be limited by the number of network cards the EC2 instance type supports. It can be more expensive. 
 
 ## Suggestion
 
