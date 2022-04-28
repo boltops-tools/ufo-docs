@@ -23,7 +23,7 @@ the table that lists the limits are under section the AWS EC2 docs under [IP Add
 
 For example, a t3.small instance has a limit of 3 ethernet cards. This means, at most, you can run 2 ECS tasks on that instance in awsvpc network mode, since the host already uses one network card.
 
-In awsvpc mode, each ECS task gets its own dedicated network card. The advantage is more granular control of the permissions per ECS service. For example, when services A and B are using awsvpc mode, they can have different security groups associated with them. In this mode, ufo creates a security group and sets up the permissions so the load balancer can talk to the containers.  You can also add additional security groups using `.ufo/config.rb`.
+In awsvpc mode, each ECS task gets its own dedicated network card. The advantage is more granular control of the permissions per ECS service. For example, when services A and B are using awsvpc mode, they can have different security groups associated with them. In this mode, ufo creates a ECS security group, associates it with the task, and sets up the permissions so the load balancer can talk to the containers.  You can also add additional security groups using `.ufo/config.rb`.
 
 A con of awsvpc network mode is that it can be more expensive. You can't get the same amount of container density. Also, ECS doesn't seem to do a great job of surfacing errors when the limit is reached. This makes them pretty difficult to debug. See: [Debugging awsvpc ENI Limits]({% link _docs/debug/awsvpc-eni-limits.md %}).
 
