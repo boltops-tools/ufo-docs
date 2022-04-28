@@ -36,6 +36,8 @@ awsvpc | Fine grain security group permission control for each ECS service and t
 
 ## Suggestion
 
-Think for most, bridge mode is good. Run the ECS containers on private subnets, if you're also ok to pay for the NAT Gateways. Though not as good as awsvpc, private subnets provide increased security isolation. Scaling goes much smoother with bridge mode and is less expensive. With awsvpc, you'll likely hit the ENI limit before hitting your own apps limits. It just depends on what bottlenecks first. Ironically, if you're app is slower, then it's actually good for scaling with awsvpc mode.  The app's limit will reach, and the ECS service and cluster will scale before hitting the ENI limit. So the ENI limit is not the bottleneck. Write slower code so it can scale 🤣  It's also easier not to have to debug ENI limits as ECS doesn't seem to surface the errors well.
+Think for most, bridge mode is good. Run the ECS containers on private subnets, if you're also ok to pay for the NAT Gateways. Though not as good as awsvpc in terms of granular control, private subnets provide increased security isolation. Scaling goes much smoother with bridge mode and is less expensive. 
+
+With awsvpc, you'll likely hit the ENI limit before hitting your own apps limits. It just depends on what bottlenecks first. Ironically, if you're app is slower, then it's actually good for scaling with awsvpc mode.  The app's limit will reach, and the ECS service and cluster will scale before hitting the ENI limit. So the ENI limit is not the bottleneck. Write slower code so it can scale 🤣  It's also easier not to have to debug ENI limits as ECS doesn't seem to surface the errors well.
 
 Though, use awsvpc mode with ENI trunking supported instances if you have that hard requirement. Some companies must do so for compliance reasons. There are trade-offs here, and companies have different needs and may prefer to pay the extra costs to scale with awsvpc mode.
