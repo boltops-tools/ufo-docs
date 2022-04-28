@@ -18,9 +18,6 @@ Ufo.configure do |config|
   # Optional existing security group ids to add in addition to the ones created by ufo.
   config.vpc.security_groups.ecs = ["sg-111"]
   config.vpc.security_groups.elb = ["sg-111"]
-
-  # Can enable or disable the creation of managed security groups
-  config.vpc.security_groups.managed = true
 end
 ```
 
