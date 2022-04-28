@@ -27,7 +27,7 @@ Ufo.configure do |config|
 end
 ```
 
-Security Groups managed by UFO are, in a sense, transient. If you delete the CloudFormation stack created by UFO, and recreate the stack entirely. Any manual changes to the security groups are lost. You can precreate security groups and configure UFO to use them. So then you won't lose any manual changes. More docs: [Security Groups]({ % link _docs/more/security-groups.md %})
+Security Groups managed by UFO are, in a sense, transient. If you delete the CloudFormation stack created by UFO, and recreate the stack entirely. Any manual changes to the security groups are lost. You can precreate security groups and configure UFO to use them. So then you won't lose any manual changes. More docs: [Security Groups]({% link _docs/more/security-groups.md %})
 
 {% include config/reference/header.md %}
 {% include config/reference/vpc.md %}
