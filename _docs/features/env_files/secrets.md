@@ -86,11 +86,11 @@ You can also override the secrets provider by specifying the provider name in th
 
 .ufo/env_files/dev.secrets
 
-    DATABASE_URL=secretsmangaer # one-off override
+    DATABASE_URL=secretsmanager # one-off override
 
 This expands to
 
-    DATABASE_URL=secretsmangaer:demo/dev/DATABASE_URL
+    DATABASE_URL=secretsmanager:demo/dev/DATABASE_URL
 
 {% include features/env_files/layering.md %}
 
