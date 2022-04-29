@@ -1,6 +1,6 @@
 ---
-title: SecretsManager Json Key
-nav_text: SecretsManager
+title: Secrets Manager Json Key
+nav_text: Secrets Manager
 category: debug
 order: 9
 ---
