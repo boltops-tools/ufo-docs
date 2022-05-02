@@ -12,4 +12,4 @@ elb.redirect.protocol | HTTPS | Redirection protocol
 elb.ssl.certificates | / | The ACM certificates to use. Example: ["arn:aws:acm:us-west-2:11111111:certificate/EXAMPLE"]. If only using one cert, can also just provide a String instead of an Array. Remember to also set `ssl.enabled = true`
 elb.ssl.enabled | false | Whether or not to enable the creationg of an SSL Listener. If enabled, `ssl.certificate` should be set.
 elb.ssl.port | 443 | ELB SSL Listener port
-elb.unhealthy_threshold_count | 2 | Number of health check failures before considered unhealthy.
+elb.unhealthy_threshold_count | 3 | Number of health check failures before considered unhealthy.
