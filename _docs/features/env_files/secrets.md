@@ -94,4 +94,34 @@ This expands to
 
 {% include features/env_files/layering.md %}
 
-Related Docs: Also See [Helper Secrets]({% link _docs/helpers/builtin/secrets.md %}).
+## JSON Key
+
+The ECS Secrets docs, [Injecting sensitive data as an environment variable](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-envvar), state that you can specify the json key when referencing the secret like so:
+
+    arn:aws:secretsmanager:region:aws_account_id:secret:secret-name:json-key:version-stage:version-id
+
+The notation is a little awkward when to use the latest version stage and version and ends in `::`. Example:
+
+    arn:aws:secretsmanager:us-west-2:111111111:secret:mysecret:mykey::
+
+This means if you have a secret called `demo/dev/DB` with a JSON value like so
+
+```json
+{
+    "pass": "mypass"
+}
+```
+
+The secrets file would like look this:
+
+.ufo/env_files/dev.secrets
+
+    PASS=secretsmanager:demo/dev/DB:pass::
+
+Since it is easy to forget the trailing `::`, UFO will automatically add the `::` if it sees it missing. So this also works
+
+.ufo/env_files/dev.secrets
+
+    PASS=secretsmanager:demo/dev/DB:pass
+
+Related Docs: Also See [Helper Secrets]({% link _docs/helpers/builtin/secrets.md %}) and [Debugging CloudFormation Template]({% link _docs/debug/cloudformation-template.md %}).
