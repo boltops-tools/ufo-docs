@@ -65,7 +65,7 @@ The default naming convention can be customized. Here’s a config with the defa
 
 ```ruby
 Ufo.configure do |config|
-  config.secrets.ssm_pattern = ":APP/:ENV/:NAME"
+  config.secrets.ssm_pattern = ":APP/:ENV/:SECRET_NAME"
 end
 ```
 
@@ -75,7 +75,7 @@ You can also change the default secrets provider to secrets manager and its patt
 
 ```ruby
 Ufo.configure do |config|
-  config.secrets.manager_pattern = ":APP/:ENV/:NAME"
+  config.secrets.manager_pattern = ":APP/:ENV/:SECRET_NAME"
   config.secrets.provider = "secretsmanager"
 end
 ```
