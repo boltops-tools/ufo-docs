@@ -100,7 +100,7 @@ The ECS Secrets docs, [Injecting sensitive data as an environment variable](http
 
     arn:aws:secretsmanager:region:aws_account_id:secret:secret-name:json-key:version-stage:version-id
 
-The notation is a little awkward when to use the latest version stage and version and ends in `::`. Example:
+The notation is a little awkward when using the latest version stage and version. It must ends in `::`. Example:
 
     arn:aws:secretsmanager:us-west-2:111111111:secret:mysecret:mykey::
 
