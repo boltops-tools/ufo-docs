@@ -4,7 +4,10 @@ elb.enabled | auto | Enables creating the ELB. Can be "auto", true or false. Aut
 elb.health_check_interval_seconds | 10 | Time, in seconds, between health checks.
 elb.health_check_path | / | Health check url path.
 elb.healthy_threshold_count | 3 | Number of health checks successes before considered healthy.
+elb.listener.enabled | Whether or not to create the standard listener with default port 80 | true
+elb.matcher | [Target group matcher](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html) | nil
 elb.port | 80 | ELB Listener port
+elb.protocol_version | [Protocol version](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-protocolversion) | nil
 elb.redirect.code | 302 | Redirection status code
 elb.redirect.enabled | false | When set to true, the Listener redirect to HTTPS by default. You should also set up SSL.
 elb.redirect.port | 443 | Redirection status port
