@@ -11,7 +11,7 @@ UFO creates and manages two security groups. One for the ELB and one for the ECS
 
 * Network load balancers do not support security groups. So an ELB security group is only created if the load balancer is an Application load balancer.
 * The ECS security group tasks only created if network_mode is awsvpc. Security groups can only be associated with ECS tasks when network mode is awsvpc. So there's no point in creating an ECS security for bridge mode.
-* In bridge network mode the EC2 container instance's Ethernet card and its security group is used. The EC2 containers group security group is outside the control of ufo. You'll need to configure the security group appropriately yourself. Usually, a security group inbound rule that allows port 49153-65535 to the VPC CDIR range is good. Also see: [Debugging Unhealthy Targets]({% link _docs/debug/unhealthy-targets.md %}).
+* In bridge network mode the EC2 container instance's Ethernet card and its security group is used. The EC2 containers group security group is outside the control of ufo. You'll need to configure the security group appropriately yourself. Usually, a security group inbound rule that allows port 32768-65535 to the VPC CDIR range is good. Also see: [Debugging Unhealthy Targets]({% link _docs/debug/unhealthy-targets.md %}).
 * UFO will only assign the ECS security group when awsvpc node mode is used, and ufo has control of the security group.
 
 ## Using Existing Security Groups

@@ -51,7 +51,7 @@ Depending on the [Network Mode](https://docs.aws.amazon.com/AmazonECS/latest/dev
 
 If using `networkMode=bridge`, which is the default for ECS EC2, then you should check the security group of the **EC2 Instance**.
 
-For `networkMode=bridge`, you can open up all Docker ephemeral ports so the Load Balancer can check the health status of the docker containers. The Docker ephemeral ports are 49153 through 65535. Usually, a security group inbound rule that allows port 49153-65535 to the VPC CDIR range is good.
+For `networkMode=bridge`, you can open up all Docker ephemeral ports so the Load Balancer can check the health status of the docker containers. The Docker ephemeral ports are 32768 through 65535. Usually, a security group inbound rule that allows port 32768-65535 to the VPC CDIR range is good.
 
 In general, ports below 32768 are outside of the ephemeral port range. So an easy way to configure the container instance's security group is to whitelist ports 32768 to 65535 to your VPC's CIDR block. See: [ECS Port Mapping Docs](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PortMapping.html). An example of a CIDR block range could be `10.0.0.0/16`.
 

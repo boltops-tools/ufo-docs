@@ -12,7 +12,7 @@ UFO supports writing your Task Definition in either YAML or JSON. For those who 
 <%#
 # networkMode comment:
 # bridge is the default because awsvpc requires specific instance types and private subnets.
-# But bridge mode requires user to open up ports on EC2 instances. Ports: 49153-65535.
+# But bridge mode requires user to open up ports on EC2 instances. Ports: 32768-65535.
 # awsvpc requires specific instance types and ECS tasks to run on private subnets.
 %>
 {
